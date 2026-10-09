@@ -5,7 +5,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 eh:OntologyV9 a owl:Ontology ;
-  rdfs:label "ET-HMAC v9 social simulation ontology"@en .
+  rdfs:label "ET-HMAC social simulation ontology"@en .
 
 eh:Household a owl:Class .
 eh:BeliefState a owl:Class .

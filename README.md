@@ -2,6 +2,8 @@
 
 This repository contains the public reproducibility materials for **Ontology-Guided Selective Deliberation for Resource-Efficient Large-Language-Model-Driven Agent-Based Simulation**.
 
+Repository: https://github.com/mzt010625-lang/et-hmac-reproducibility
+
 ## Primary frozen result
 
 On the independent 1,020-record Stage 9D holdout, the hybrid system reached 97.75% agreement with a separately executed full-L2 operational reference, 96.48% balanced agreement, and 96.70% macro-F1 while reducing tokens by 68.36% and invoking L2 for 24.80% of opportunities. Two domain experts completed a blinded review of 500 frozen cases; their adjudicated consensus matched the full-L2 reference in all 500 cases. The first set of numbers are model-reference metrics and the second is expert face-validity evidence; neither is observed household-behaviour accuracy.

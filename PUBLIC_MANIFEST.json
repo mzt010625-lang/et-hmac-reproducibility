@@ -9,13 +9,13 @@
     },
     {
       "path": "CITATION.cff",
-      "sha256": "9b2e2671f75ab62c33e401e4f071c1e70f2540bcf8aebbc96c9d0f3853b51a83",
-      "bytes": 356
+      "sha256": "1ba2465de8ebe255a80133c4aebc6353272e2208dde15091068046ba472efb34",
+      "bytes": 494
     },
     {
       "path": "README.md",
-      "sha256": "40c39ac7cafff6247a96112aa148beb1a19712b3088b7cc8ce339bccdfbe103b",
-      "bytes": 3182
+      "sha256": "8184505542638e6778cbed2c20ef759d0a3257f566d3c8c78110da4bd6919f77",
+      "bytes": 3253
     },
     {
       "path": "configs/agent_parameters_v1.json",
@@ -179,13 +179,13 @@
     },
     {
       "path": "documentation/ET_HMAC_ESWA_manuscript.md",
-      "sha256": "0ca9cdb11400983a71ab371e72049d78a701a1a1a14ad1669cc983fcad2bf0d3",
-      "bytes": 35151
+      "sha256": "2e89f4f1d6eeb01797bc4101183008704c707c66c1141f26de1cb2f922463332",
+      "bytes": 35173
     },
     {
       "path": "documentation/STAGE9_12_FINAL_STATUS.md",
-      "sha256": "63688a77a4fe3aa459451d3baaebf4824486750675cc0de7410aab8ce4d90877",
-      "bytes": 1528
+      "sha256": "d2d643d6e9388be3b0846ac26668f401639cfb4c40a8e994730975060da30d1e",
+      "bytes": 1511
     },
     {
       "path": "documentation/Stage11两轮模拟审稿_2026-10-09.md",
@@ -199,8 +199,8 @@
     },
     {
       "path": "documentation/stage12_submission_manifest.json",
-      "sha256": "d5bc9a23b85ad86e032c94e392977d18deb716e2998b08c092ebccf8724dc5bd",
-      "bytes": 3495
+      "sha256": "27c68ef42dd957129fcef2800dc0b46f3669bd629f59debdd963fbe8bbf42b9b",
+      "bytes": 3548
     },
     {
       "path": "figures/ET_HMAC_Editable_Figures.pptx",
@@ -244,8 +244,8 @@
     },
     {
       "path": "main_stage12_finalize.py",
-      "sha256": "30baf01d5488b1f4f00591305d45e990d382f92c98885342c90b5009c6c80479",
-      "bytes": 6921
+      "sha256": "25a4389ef349de7e3c620615450ddebd6931ec82f0e2c4259403c55acb951c37",
+      "bytes": 6994
     },
     {
       "path": "main_stage9d.py",
@@ -274,8 +274,8 @@
     },
     {
       "path": "ontology/ethmac_v9.ttl",
-      "sha256": "b9b28daa4d353e7f0470724369c7776f79c1e18eb683c14514764ede3e4579ce",
-      "bytes": 2205
+      "sha256": "9e0f0698af0b2b7bc3681ad5b9a96b4ac14a71e84a3fad9f623ad0da1c673cf2",
+      "bytes": 2202
     },
     {
       "path": "ontology/ethmac_v9_shapes.ttl",

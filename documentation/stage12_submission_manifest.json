@@ -3,14 +3,14 @@
     "500条双专家盲评已经完成，但当前归档不含仲裁前逐专家标注表，无法复算专家间Kappa或alpha。",
     "尚无真实家庭行为标签或真实宏观总量校准结果。",
     "现有API轨迹证据属于纵向回放，不是行为反馈驱动的多世界闭环。",
-    "去密后的公共代码/数据包已生成，但GitHub仓库URL尚待上传后回填；归档DOI尚未取得。"
+    "公开GitHub仓库已发布；归档DOI尚未取得，属于推荐增强项。"
   ],
   "files": {
-    "00_项目管理/当前有效口径与入口_2026-10-09.md": "a73a30f2abdb20e73e4198337b23f070f28fbf152002d268ffab35805c445ae6",
-    "05_论文/ESWA_SMPT_title_page.md": "337e0c4e774e47043eb206d570070405fae32e7b79158b4275bfdfade3e7127a",
+    "00_项目管理/当前有效口径与入口_2026-10-09.md": "8818e5cd25cf2567d09c665e8179789f638516a3d4b9763d3f736a5709b2235f",
+    "05_论文/ESWA_SMPT_title_page.md": "57a06530b47bb0ba1895550a8dc07c154e90ca7a39433b6c23b10699a3fca542",
     "05_论文/ESWA_cover_letter_draft.md": "92836bfc72e6fbacc7022edd8d15c0f00d6cecef6921638b76d191c6badcea1e",
-    "05_论文/ET_HMAC_v9_ESWA_SMPT_manuscript_draft.md": "9a46c8b00e4bbc41bb783722b6f5a2763b6117c22b83710f3df217f2ab3012cc",
-    "05_论文/highlights.md": "177576f9de7b2794f594febd59e5ef9d57b81708c907218f1dc6ab769983d959",
+    "05_论文/ET_HMAC_ESWA_manuscript.md": "2e89f4f1d6eeb01797bc4101183008704c707c66c1141f26de1cb2f922463332",
+    "05_论文/highlights.md": "d3ef5ce43cb3461461df82aabbd598f23775216c96ad997bc25050439e28a382",
     "06_报告/Stage11两轮模拟审稿_2026-10-09.md": "ae40cfe17cff415ade5676e177998470808d913222b11d83af1f7128ae7c86e7",
     "06_报告/Stage11新增路由文献核验_2026-10-09.md": "8ba570bb641551c55153e844b7758e612c9218988de076fc635b32d03b04ed1b",
     "06_报告/Stage12选刊与投稿要求核验_2026-10-09.md": "f876f08ed7278a5bd566b921f2e984b6799a612cbf0fd84bac3925e679be8354",
@@ -35,8 +35,9 @@
     "conditional_backup": "Simulation Modelling Practice and Theory",
     "primary": "Expert Systems with Applications"
   },
-  "status": "TECHNICAL_PACKAGE_COMPLETE_GITHUB_UPLOAD_AND_EMPIRICAL_VALIDATION_PENDING",
-  "submission_gate": "完成GitHub上传并回填最终URL后可进入ESWA投稿系统；归档DOI是推荐增强项。正文必须继续区分全量L2一致率、专家面效度和真实家庭行为效度。",
+  "public_repository": "https://github.com/mzt010625-lang/et-hmac-reproducibility",
+  "status": "TECHNICAL_PACKAGE_COMPLETE_GITHUB_PUBLISHED_EMPIRICAL_VALIDATION_PENDING",
+  "submission_gate": "技术包与公开仓库已完成；作者核对ESWA投稿系统表单后可投稿。归档DOI是推荐增强项。正文必须继续区分全量L2一致率、专家面效度和真实家庭行为效度。",
   "verification": {
     "credential_pattern_hits": [],
     "stage11_checks": 23,

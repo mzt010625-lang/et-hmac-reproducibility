@@ -261,7 +261,7 @@ The findings support selective deliberation as a practical resource-control laye
 
 ## Data and code availability
 
-The project stores frozen configuration, prompts, schemas, token ledgers, latency observations, parsers, metrics, and SHA-256 manifests. A de-identified public reproducibility repository containing the synthetic inputs, parsed decisions, routing ledgers, source code, tests, and expert-review completion summary has been prepared; its final GitHub URL will be inserted after upload. API credentials and private endpoints are excluded. Raw provider requests and responses are retained locally and are not redistributed where service terms or privacy controls do not permit it.
+The project stores frozen configuration, prompts, schemas, token ledgers, latency observations, parsers, metrics, and SHA-256 manifests. A de-identified public reproducibility repository containing the synthetic inputs, parsed decisions, routing ledgers, source code, tests, expert-review completion summary, and editable figures is available at https://github.com/mzt010625-lang/et-hmac-reproducibility. API credentials and private endpoints are excluded. Raw provider requests and responses are retained locally and are not redistributed where service terms or privacy controls do not permit it.
 
 ## Declaration of generative AI and AI-assisted technologies in the manuscript preparation process
 

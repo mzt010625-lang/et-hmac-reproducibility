@@ -1,6 +1,6 @@
 # Stage 9–12最终状态
 
-**状态：TECHNICAL_PACKAGE_COMPLETE_GITHUB_UPLOAD_AND_EMPIRICAL_VALIDATION_PENDING**
+**状态：TECHNICAL_PACKAGE_COMPLETE_GITHUB_PUBLISHED_EMPIRICAL_VALIDATION_PENDING**
 
 ## 冻结主结果
 
@@ -26,8 +26,8 @@
 - 500条双专家盲评已经完成，但当前归档不含仲裁前逐专家标注表，无法复算专家间Kappa或alpha。
 - 尚无真实家庭行为标签或真实宏观总量校准结果。
 - 现有API轨迹证据属于纵向回放，不是行为反馈驱动的多世界闭环。
-- 去密后的公共代码/数据包已生成，但GitHub仓库URL尚待上传后回填；归档DOI尚未取得。
+- 公开GitHub仓库已发布；归档DOI尚未取得，属于推荐增强项。
 
 ## 投稿门禁
 
-完成GitHub上传并回填最终URL后可进入ESWA投稿系统；归档DOI是推荐增强项。正文必须继续区分全量L2一致率、专家面效度和真实家庭行为效度。
+技术包与公开仓库已完成；作者核对ESWA投稿系统表单后可投稿。归档DOI是推荐增强项。正文必须继续区分全量L2一致率、专家面效度和真实家庭行为效度。
