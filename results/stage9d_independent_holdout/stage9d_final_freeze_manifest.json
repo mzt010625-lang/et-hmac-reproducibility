@@ -1,0 +1,10 @@
+{
+  "api_key_recorded": false,
+  "network_called": true,
+  "next_stage": "Stage 9E closed-loop multi-round ABM and trajectory-level evaluation",
+  "outputs": {
+    "STAGE9D_FINAL_REPORT.md": "dc00bfcb0e1cc4dca863e03464eaca66dc1406a8636ad4092716cd479aea2cfe",
+    "stage9d_final_metrics.json": "aa51dc066ae86cb5d0fc94d05583abaae591bacfbe10e01c741e7e3bc8b6f8bc"
+  },
+  "status": "FROZEN_STAGE9D_COMPLETE"
+}

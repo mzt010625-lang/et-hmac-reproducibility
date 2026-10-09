@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "L2 semantic exception v9",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["v", "id", "base_action", "action", "override_code", "confidence", "evidence", "belief_updates", "memory_updates"],
+  "properties": {
+    "v": {"const": "l2_semantic_exception_v9"},
+    "id": {"type": "string", "minLength": 1},
+    "base_action": {"enum": ["stay", "wait", "search_buy", "search_jeonse", "search_monthly_rent", "list_for_sale", "list_for_rent"]},
+    "action": {"enum": ["stay", "wait", "search_buy", "search_jeonse", "search_monthly_rent", "list_for_sale", "list_for_rent"]},
+    "override_code": {"enum": ["NONE", "MARKET_ZERO", "RECENT_FAILURE", "POLICY_BLOCK", "POLICY_ENABLE", "CONFLICT_WAIT"]},
+    "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+    "evidence": {"type": "array", "maxItems": 4, "uniqueItems": true, "items": {"type": "string"}},
+    "belief_updates": {"type": "array", "uniqueItems": true, "items": {"enum": ["REASSESS_ELIGIBILITY", "REASSESS_AFFORDABILITY", "UPDATE_PRICE_EXPECTATION", "UPDATE_SOURCE_TRUST"]}},
+    "memory_updates": {"type": "array", "uniqueItems": true, "items": {"enum": ["RECORD_SEARCH_OUTCOME", "RECORD_TRANSACTION_OUTCOME", "NO_DIRECT_UPDATE"]}}
+  }
+}

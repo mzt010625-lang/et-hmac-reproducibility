@@ -1,0 +1,20 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix eh: <https://ethmac.local/ontology/v9#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+eh:EvidenceShape a sh:NodeShape ;
+  sh:targetClass eh:Evidence ;
+  sh:property [ sh:path eh:hasProvenance ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+  sh:property [ sh:path eh:visibleFrom ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:integer ] ;
+  sh:property [ sh:path eh:sourceChannel ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] .
+
+eh:HouseholdShape a sh:NodeShape ;
+  sh:targetClass eh:Household ;
+  sh:property [ sh:path eh:hasBeliefState ; sh:minCount 1 ; sh:maxCount 1 ] ;
+  sh:property [ sh:path eh:hasGoalProfile ; sh:minCount 1 ; sh:maxCount 1 ] .
+
+eh:DecisionTraceShape a sh:NodeShape ;
+  sh:targetClass eh:DecisionTrace ;
+  sh:property [ sh:path eh:ruleId ; sh:minCount 1 ; sh:maxCount 1 ] ;
+  sh:property [ sh:path eh:ruleStatus ; sh:minCount 1 ; sh:maxCount 1 ] .
+

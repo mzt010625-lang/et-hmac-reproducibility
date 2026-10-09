@@ -1,0 +1,44 @@
+{
+  "api_key_recorded": false,
+  "cohorts": {
+    "natural": 400,
+    "policy_ood": 200,
+    "stress": 420
+  },
+  "created_at_utc": "2026-10-09T03:40:33.716963+00:00",
+  "execution_order": [
+    "hard_guard_precheck",
+    "compact_jev_only_on_nonhard_coarse_candidates",
+    "freeze_hard_guard_or_jev_route",
+    "independent_selected_l2_for_hybrid",
+    "independent_full_l2_reference_on_every_record"
+  ],
+  "external_upload_authorized_by_user": true,
+  "files": {
+    "configs/stage9d_optimized_holdout_v1.json": "c1daf22d32af27646b1dfdef3e1011af7a1b4dd7ba3e697d6dd49683cd230cf4",
+    "data/stage9d_optimized_holdout_v1/dataset_manifest.json": "679da254567b56ca9805cbfa31448ac34fe7f688a73d73d746ef9aa51cfeae13",
+    "data/stage9d_optimized_holdout_v1/natural_inputs.jsonl": "9d35c6aa06979f27277ef5df76d61eadb8b15d1718e01240318c9bfaa112e498",
+    "data/stage9d_optimized_holdout_v1/natural_selection_manifest.jsonl": "17c63e9fabae38637b7169e7e134636119e552bec28a517d0fe43d390269412f",
+    "data/stage9d_optimized_holdout_v1/policy_ood_inputs.jsonl": "ab2aa54f1162658a09fea283f00dc602722ee9b39a651d86e38b48f328f2fe11",
+    "data/stage9d_optimized_holdout_v1/policy_ood_selection_manifest.jsonl": "953fa424b9299b4bea54600cb01428478e3693cc66bd1e3403becada37fdf3fc",
+    "data/stage9d_optimized_holdout_v1/pre_api_audit.json": "31c4c0a8d7d1917496396af6819bbde5b15fe2a74bf626817a4e017838fb55e7",
+    "data/stage9d_optimized_holdout_v1/stress_inputs.jsonl": "22bc1f8fec3ba640517685edadd24755d749494f0dcb4b6bace80b860f9ed705",
+    "data/stage9d_optimized_holdout_v1/stress_selection_manifest.jsonl": "9c8247a3c00914c0ee670a4d84c52924a0173a6d103ee570ceb383acf5b60e09",
+    "main_stage9d.py": "5075c44b21a7c000964ec6e2b5bcb51856266da26fc12f2e125a741317869e85",
+    "prompts/jev_compact_event_router_system_v2.md": "e15eef47e771271bc16f0cb1f0d1e8ea36fc9e4036fb37db8d431278fb3fbd1e",
+    "prompts/jev_compact_event_router_user_v2.md": "0f28d3e0f76bcce178e3d0e040af9efedf3aec2da03d2b94a33b7eed7a783ca2",
+    "prompts/l2_semantic_exception_system_v9.md": "f27429571d6366f3cbd8099f4367959fdfd891a79cce9ba4ef8741d892a6e776",
+    "prompts/l2_semantic_exception_user_v9.md": "604ccaff042761cc0e1e4617323caf985679ff6b23670cd22cf7e6aa4cc18260",
+    "schemas/jev_compact_event_router_v2.schema.json": "26bd3b3c51d52a3c8fea94ddb3b1cb1bc4ccd1db4b0d8b29889f80dab72b6ce9",
+    "schemas/l2_semantic_exception_v9.schema.json": "fe4b4520d74f3db865211c578defd27be5c458f20baf31a54c35a00fb2409b8b",
+    "src/ethmac_v9/stage8d_router.py": "0b8e53220c01fe88946ec84bc2bbf0ab95ea9394ac21bd09695447cadcf0e74d",
+    "src/ethmac_v9/stage8f_contract.py": "d4ab6f2a0ab88225b19d69d15f47b63bba36364fd3dafee02d069eb6b4d65df8",
+    "src/ethmac_v9/stage8g_router.py": "16f6772a2122c2b92611447f9ba9a5f7ff9f9b6f62564cd2e838f4c1ac63b711"
+  },
+  "hard_guard_bypasses_jev": true,
+  "model": "deepseek-flash",
+  "provider": "DeepSeek official OpenAI-compatible endpoint",
+  "response_reuse_between_hybrid_and_full_reference": false,
+  "status": "FROZEN_STAGE9D_RUN",
+  "version": "stage9d_optimized_holdout_v1"
+}

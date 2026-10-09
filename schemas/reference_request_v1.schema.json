@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ethmac.local/schema/reference_request_v1.json",
+  "title": "Independent reference request v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["record_id", "household_id", "round", "visible_cutoff", "household_state", "visible_evidence", "allowed_actions", "task_definition"],
+  "properties": {
+    "record_id": {"type": "string", "minLength": 1},
+    "household_id": {"type": "string", "minLength": 1},
+    "round": {"type": "integer", "minimum": 0},
+    "visible_cutoff": {"type": "integer", "minimum": 0},
+    "household_state": {"type": "object"},
+    "visible_evidence": {"type": "array", "items": {"type": "object"}},
+    "allowed_actions": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"enum": ["stay", "wait", "search_buy", "search_jeonse", "search_monthly_rent", "list_for_sale", "list_for_rent"]}
+    },
+    "task_definition": {"type": "string", "minLength": 1}
+  }
+}
+

@@ -1,0 +1,22 @@
+{
+  "version": "agent_parameters_v1",
+  "memory_window": 12,
+  "memory_decay": 0.18,
+  "belief_learning_rate": 0.35,
+  "trust_learning_rate": 0.12,
+  "minimum_evidence_weight": 0.01,
+  "price_expectation_bounds": [-0.2, 0.2],
+  "policy_duration_bounds": [0.0, 12.0],
+  "probability_bounds": [0.0, 1.0],
+  "actions": [
+    "stay",
+    "wait",
+    "search_buy",
+    "search_jeonse",
+    "search_monthly_rent",
+    "list_for_sale",
+    "list_for_rent"
+  ],
+  "memory_channels": ["official", "relative", "neighbor", "online", "market", "self_experience"]
+}
+

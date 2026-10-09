@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ethmac.local/schema/benchmark_record_v1.json",
+  "title": "ET-HMAC benchmark record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["record_id", "household_id", "world_id", "network_seed", "policy_template_id", "round", "visible_cutoff", "queue_type", "split", "state", "visible_evidence"],
+  "properties": {
+    "record_id": {"type": "string", "minLength": 1},
+    "parent_sample_id": {"type": ["string", "null"]},
+    "household_id": {"type": "string", "minLength": 1},
+    "world_id": {"type": "string", "minLength": 1},
+    "network_seed": {"type": "integer", "minimum": 0},
+    "policy_template_id": {"type": "string", "minLength": 1},
+    "round": {"type": "integer", "minimum": 0},
+    "visible_cutoff": {"type": "integer", "minimum": 0},
+    "queue_type": {"enum": ["natural", "stress", "counterfactual"]},
+    "split": {"enum": ["development", "pilot", "locked_test"]},
+    "state": {"$ref": "household_state_v1.schema.json"},
+    "visible_evidence": {"type": "array", "items": {"type": "object"}}
+  }
+}
+

@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ethmac.local/schema/jev_output_v1.schema.json",
+  "title": "Uncalibrated JEV/System-1 output",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "record_id",
+    "action_probabilities",
+    "fast_action_error_probability_raw",
+    "l2_correction_probability_raw",
+    "l2_harm_probability_raw",
+    "semantic_conflict_score_raw",
+    "novelty_score_raw",
+    "confidence_raw",
+    "should_escalate_raw",
+    "route_reasons",
+    "evidence_ids"
+  ],
+  "properties": {
+    "schema_version": {"const": "jev_output_v1"},
+    "record_id": {"type": "string", "minLength": 1},
+    "action_probabilities": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["stay", "wait", "search_buy", "search_jeonse", "search_monthly_rent", "list_for_sale", "list_for_rent"],
+      "properties": {
+        "stay": {"type": "number", "minimum": 0, "maximum": 1},
+        "wait": {"type": "number", "minimum": 0, "maximum": 1},
+        "search_buy": {"type": "number", "minimum": 0, "maximum": 1},
+        "search_jeonse": {"type": "number", "minimum": 0, "maximum": 1},
+        "search_monthly_rent": {"type": "number", "minimum": 0, "maximum": 1},
+        "list_for_sale": {"type": "number", "minimum": 0, "maximum": 1},
+        "list_for_rent": {"type": "number", "minimum": 0, "maximum": 1}
+      }
+    },
+    "fast_action_error_probability_raw": {"type": "number", "minimum": 0, "maximum": 1},
+    "l2_correction_probability_raw": {"type": "number", "minimum": 0, "maximum": 1},
+    "l2_harm_probability_raw": {"type": "number", "minimum": 0, "maximum": 1},
+    "semantic_conflict_score_raw": {"type": "number", "minimum": 0, "maximum": 1},
+    "novelty_score_raw": {"type": "number", "minimum": 0, "maximum": 1},
+    "confidence_raw": {"type": "number", "minimum": 0, "maximum": 1},
+    "should_escalate_raw": {"type": "boolean"},
+    "route_reasons": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 5,
+      "uniqueItems": true,
+      "items": {"enum": ["L1_LOW_MARGIN", "RULE_CONFLICT", "EVIDENCE_CONFLICT", "NOVEL_STATE", "NETWORK_DEPENDENCE", "MULTISTEP_DEPENDENCE", "HIGH_STAKES", "MISSING_EVIDENCE", "FAST_PATH_STABLE", "HARD_CONSTRAINT_RISK"]}
+    },
+    "evidence_ids": {"type": "array", "maxItems": 5, "uniqueItems": true, "items": {"type": "string"}}
+  }
+}
+

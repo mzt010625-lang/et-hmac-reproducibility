@@ -1,0 +1,200 @@
+{
+  "cognition_audit": {
+    "action_outcome_memory_items": 0,
+    "conclusion": "The snapshots are temporally valid and stateful, but contain no executed-action outcome memory; therefore they are not formal action-feedback ABM evidence.",
+    "future_memory_violations": 0,
+    "households_with_belief_change": 100,
+    "households_with_state_change": 0,
+    "memory_window_observed_max": 6
+  },
+  "evidence_scope": {
+    "action_conditioned_api_closed_loop": false,
+    "local_feedback_software_gate": true,
+    "longitudinal_replay": true,
+    "warning": "Stage 9D natural records were generated as longitudinal snapshots; their later records were not causally regenerated from the method-specific prior action."
+  },
+  "local_closed_loop_software_gate": {
+    "all_pass": true,
+    "details": [
+      {
+        "all_agents_advanced_four_rounds": true,
+        "all_agents_have_action_outcome_memory": true,
+        "all_rounds_changed_state": true,
+        "rounds": 4,
+        "seed": 2026100901
+      },
+      {
+        "all_agents_advanced_four_rounds": true,
+        "all_agents_have_action_outcome_memory": true,
+        "all_rounds_changed_state": true,
+        "rounds": 4,
+        "seed": 2026100902
+      },
+      {
+        "all_agents_advanced_four_rounds": true,
+        "all_agents_have_action_outcome_memory": true,
+        "all_rounds_changed_state": true,
+        "rounds": 4,
+        "seed": 2026100903
+      },
+      {
+        "all_agents_advanced_four_rounds": true,
+        "all_agents_have_action_outcome_memory": true,
+        "all_rounds_changed_state": true,
+        "rounds": 4,
+        "seed": 2026100904
+      },
+      {
+        "all_agents_advanced_four_rounds": true,
+        "all_agents_have_action_outcome_memory": true,
+        "all_rounds_changed_state": true,
+        "rounds": 4,
+        "seed": 2026100905
+      },
+      {
+        "all_agents_advanced_four_rounds": true,
+        "all_agents_have_action_outcome_memory": true,
+        "all_rounds_changed_state": true,
+        "rounds": 4,
+        "seed": 2026100906
+      },
+      {
+        "all_agents_advanced_four_rounds": true,
+        "all_agents_have_action_outcome_memory": true,
+        "all_rounds_changed_state": true,
+        "rounds": 4,
+        "seed": 2026100907
+      },
+      {
+        "all_agents_advanced_four_rounds": true,
+        "all_agents_have_action_outcome_memory": true,
+        "all_rounds_changed_state": true,
+        "rounds": 4,
+        "seed": 2026100908
+      },
+      {
+        "all_agents_advanced_four_rounds": true,
+        "all_agents_have_action_outcome_memory": true,
+        "all_rounds_changed_state": true,
+        "rounds": 4,
+        "seed": 2026100909
+      },
+      {
+        "all_agents_advanced_four_rounds": true,
+        "all_agents_have_action_outcome_memory": true,
+        "all_rounds_changed_state": true,
+        "rounds": 4,
+        "seed": 2026100910
+      }
+    ],
+    "runs": 10,
+    "scope": "Verifies deterministic transition plumbing only; it is not behavioral validation."
+  },
+  "longitudinal_replay": {
+    "action_distribution_js_divergence_bits": 0.0,
+    "households": 100,
+    "mean_trajectory_hamming_rate": 0.0,
+    "per_round": {
+      "1": {
+        "agreement": 1.0,
+        "full_l2_tokens": 243154,
+        "jev_rate": 0.1,
+        "jev_tokens": 9422,
+        "l2_rate": 0.04,
+        "n": 100,
+        "selected_l2_tokens": 10511,
+        "token_saving": 0.9180231458252794
+      },
+      "2": {
+        "agreement": 1.0,
+        "full_l2_tokens": 259352,
+        "jev_rate": 0.06,
+        "jev_tokens": 5644,
+        "l2_rate": 0.05,
+        "n": 100,
+        "selected_l2_tokens": 13500,
+        "token_saving": 0.9261852617292329
+      },
+      "3": {
+        "agreement": 1.0,
+        "full_l2_tokens": 277558,
+        "jev_rate": 0.2,
+        "jev_tokens": 18704,
+        "l2_rate": 0.05,
+        "n": 100,
+        "selected_l2_tokens": 14255,
+        "token_saving": 0.8812536478862075
+      },
+      "4": {
+        "agreement": 1.0,
+        "full_l2_tokens": 280551,
+        "jev_rate": 0.35,
+        "jev_tokens": 32671,
+        "l2_rate": 0.05,
+        "n": 100,
+        "selected_l2_tokens": 13911,
+        "token_saving": 0.8339624524596241
+      }
+    },
+    "record_level_agreement": 1.0,
+    "records": 400,
+    "rounds_per_household": [
+      4
+    ],
+    "trajectory_exact_match_rate": 1.0,
+    "transition_distribution_total_variation": 0.0
+  },
+  "source_stage9d_run": "runs/stage9d_optimized_holdout_v1/frozen_8058ea605c2771e8",
+  "status": "FROZEN_STAGE9E_LONGITUDINAL_AND_SOFTWARE_GATE_COMPLETE",
+  "transition_support": [
+    "stay->stay",
+    "stay->wait",
+    "stay->search_buy",
+    "stay->search_jeonse",
+    "stay->search_monthly_rent",
+    "stay->list_for_sale",
+    "stay->list_for_rent",
+    "wait->stay",
+    "wait->wait",
+    "wait->search_buy",
+    "wait->search_jeonse",
+    "wait->search_monthly_rent",
+    "wait->list_for_sale",
+    "wait->list_for_rent",
+    "search_buy->stay",
+    "search_buy->wait",
+    "search_buy->search_buy",
+    "search_buy->search_jeonse",
+    "search_buy->search_monthly_rent",
+    "search_buy->list_for_sale",
+    "search_buy->list_for_rent",
+    "search_jeonse->stay",
+    "search_jeonse->wait",
+    "search_jeonse->search_buy",
+    "search_jeonse->search_jeonse",
+    "search_jeonse->search_monthly_rent",
+    "search_jeonse->list_for_sale",
+    "search_jeonse->list_for_rent",
+    "search_monthly_rent->stay",
+    "search_monthly_rent->wait",
+    "search_monthly_rent->search_buy",
+    "search_monthly_rent->search_jeonse",
+    "search_monthly_rent->search_monthly_rent",
+    "search_monthly_rent->list_for_sale",
+    "search_monthly_rent->list_for_rent",
+    "list_for_sale->stay",
+    "list_for_sale->wait",
+    "list_for_sale->search_buy",
+    "list_for_sale->search_jeonse",
+    "list_for_sale->search_monthly_rent",
+    "list_for_sale->list_for_sale",
+    "list_for_sale->list_for_rent",
+    "list_for_rent->stay",
+    "list_for_rent->wait",
+    "list_for_rent->search_buy",
+    "list_for_rent->search_jeonse",
+    "list_for_rent->search_monthly_rent",
+    "list_for_rent->list_for_sale",
+    "list_for_rent->list_for_rent"
+  ]
+}

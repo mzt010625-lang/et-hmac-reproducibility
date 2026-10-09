@@ -1,0 +1,43 @@
+{
+  "api_key_recorded": false,
+  "cohorts": {
+    "natural": 2000,
+    "policy_ood": 1000,
+    "stress": 1400
+  },
+  "created_at_utc": "2026-10-08T08:57:19.891598+00:00",
+  "execution_order": [
+    "compact_jev_on_frozen_coarse_candidates",
+    "freeze_guard_or_jev_route_selection",
+    "independent_selected_l2_for_hybrid",
+    "independent_full_l2_reference_on_every_record"
+  ],
+  "external_upload_authorization_recorded": false,
+  "files": {
+    "configs/stage9_confirmatory_v1.json": "4e2cc1ca82ed7165530bf3af4afed258e340672dffa7148dfe7a7d30cef0524c",
+    "data/stage9_confirmatory_v1/dataset_manifest.json": "16dcc30315ec708905e1612f39fe3b9923044fbc51e6f0d17b03ccb9f52acfcb",
+    "data/stage9_confirmatory_v1/natural_inputs.jsonl": "0891424d4636d1ae78bee48f6077e7868fd798d807be64906c63c3a653674675",
+    "data/stage9_confirmatory_v1/policy_ood_inputs.jsonl": "717dd10e68a302ba506129edc25f542e07a19562b166fb4ba0149f708a869576",
+    "data/stage9_confirmatory_v1/pre_api_audit.json": "c0c1bcb01a765b03ae771d55b6bffc0c832b920701183a9a06b43450d9392e1b",
+    "data/stage9_confirmatory_v1/stress_inputs.jsonl": "ef23e240db359f08aa418d628df67173989e193491dac47f889636881cb6575a",
+    "main_stage8g_isolated_jev_comparison.py": "a95f09726d8a1f1be1d16ea6c2f0686b971a09594bcb0214cdda67681bd3d467",
+    "main_stage8h_final_development.py": "ceb6671c5d97685d8aef62cfa71622adb0a4e100f9b4b405d55dc0e319575f9c",
+    "main_stage9.py": "b4805c8f5270e402b4a3d346cefe5fd9a992727b56d9cc8731cabe72caeed2a9",
+    "prompts/jev_compact_event_router_system_v2.md": "e15eef47e771271bc16f0cb1f0d1e8ea36fc9e4036fb37db8d431278fb3fbd1e",
+    "prompts/jev_compact_event_router_user_v2.md": "0f28d3e0f76bcce178e3d0e040af9efedf3aec2da03d2b94a33b7eed7a783ca2",
+    "prompts/l2_semantic_exception_system_v9.md": "f27429571d6366f3cbd8099f4367959fdfd891a79cce9ba4ef8741d892a6e776",
+    "prompts/l2_semantic_exception_user_v9.md": "604ccaff042761cc0e1e4617323caf985679ff6b23670cd22cf7e6aa4cc18260",
+    "runs/stage8_final_guarded_v1/frozen_a790c5427e07e7a2/stage8_final_freeze_manifest.json": "5f1a2b501791a471373b4d324c00db613b61c7ff6937c9c454f50c70178fd363",
+    "schemas/jev_compact_event_router_v2.schema.json": "26bd3b3c51d52a3c8fea94ddb3b1cb1bc4ccd1db4b0d8b29889f80dab72b6ce9",
+    "schemas/l2_semantic_exception_v9.schema.json": "fe4b4520d74f3db865211c578defd27be5c458f20baf31a54c35a00fb2409b8b",
+    "src/ethmac_v9/stage8d_router.py": "0b8e53220c01fe88946ec84bc2bbf0ab95ea9394ac21bd09695447cadcf0e74d",
+    "src/ethmac_v9/stage8f_contract.py": "d4ab6f2a0ab88225b19d69d15f47b63bba36364fd3dafee02d069eb6b4d65df8",
+    "src/ethmac_v9/stage8g_router.py": "16f6772a2122c2b92611447f9ba9a5f7ff9f9b6f62564cd2e838f4c1ac63b711"
+  },
+  "model": "deepseek-flash",
+  "provider": "DeepSeek official OpenAI-compatible endpoint",
+  "response_reuse_between_hybrid_and_full_reference": false,
+  "route_equation": "route_to_l2 = hard_guard_event OR jev_should_escalate",
+  "status": "FROZEN_STAGE9_RUN_AWAITING_API",
+  "version": "stage9_confirmatory_official_v2"
+}

@@ -1,0 +1,52 @@
+{
+  "claim_boundaries": [
+    "API receipt latency includes remote service and network effects; it is not server-side GPU kernel time.",
+    "No server GPU memory, accelerator utilization, queue telemetry, or energy measurement is available.",
+    "Dynamic batching and speculative cancellation were not claimed because the endpoint exposes no batch scheduler telemetry.",
+    "The CPU benchmark measures ontology/rule/routing preparation on one local process only."
+  ],
+  "content_addressed_replay": {
+    "elapsed_seconds": 0.786172708,
+    "hit_rate": 0.95,
+    "hits": 19380,
+    "lookup_throughput_per_second": 25948.49680281702,
+    "lookups": 20400,
+    "misses": 1020,
+    "scope": "Repeated deterministic replay benchmark, not an observed production cache hit rate."
+  },
+  "local_cpu_path": {
+    "checksum": -2628024387058199154,
+    "elapsed_seconds": 3.617680916,
+    "latency_microseconds": {
+      "median": 6.125,
+      "p95": 14.125,
+      "p99": 17.125
+    },
+    "max_rss_after": 62226432,
+    "max_rss_before": 51773440,
+    "operations": 510000,
+    "passes": 500,
+    "throughput_ops_per_second": 140974.2903926135
+  },
+  "observed_api_receipt_latency_seconds": {
+    "full_l2": {
+      "mean": 1.9046277483627414,
+      "median": 1.877086312000074,
+      "p95": 2.203614000000016
+    },
+    "hard_guard_path_p95": 2.2828591669999696,
+    "hybrid": {
+      "mean": 0.7814303995450973,
+      "median": 0.0,
+      "p95": 2.1595155829995747
+    },
+    "hybrid_p95_change_vs_full": -0.020011860970406303,
+    "nonhard_path_p95": 1.891571833999933
+  },
+  "records": 1020,
+  "status": "FROZEN_STAGE9G_LOCAL_DEPLOYMENT_BENCHMARK_COMPLETE",
+  "system": {
+    "platform": "macOS-27.0.1-arm64-arm-64bit",
+    "python": "3.9.6"
+  }
+}

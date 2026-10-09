@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ethmac.local/schema/final_decision_v1.schema.json",
+  "title": "Immutable final decision commit",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "record_id", "decision_version", "status", "final_action",
+    "final_source", "fast_action", "fast_source", "l2_requested",
+    "accepted_l2_response_id", "accepted_l2_action", "action_disagreement",
+    "retry_count", "degradation_reason", "guard_version"
+  ],
+  "properties": {
+    "schema_version": {"const": "final_decision_v1"},
+    "record_id": {"type": "string"},
+    "decision_version": {"type": "string"},
+    "status": {"enum": ["COMMITTED", "UNDECIDED"]},
+    "final_action": {"type": ["string", "null"]},
+    "final_source": {"type": "string"},
+    "fast_action": {"type": ["string", "null"]},
+    "fast_source": {"type": "string"},
+    "l2_requested": {"type": "boolean"},
+    "accepted_l2_response_id": {"type": ["string", "null"]},
+    "accepted_l2_action": {"type": ["string", "null"]},
+    "action_disagreement": {"type": ["boolean", "null"]},
+    "retry_count": {"type": "integer", "minimum": 0},
+    "degradation_reason": {"type": ["string", "null"]},
+    "guard_version": {"type": "string"}
+  }
+}

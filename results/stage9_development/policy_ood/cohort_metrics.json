@@ -1,0 +1,85 @@
+{
+  "coarse_candidates": 1000,
+  "decision_precedence_audit": {
+    "final_source_l2_count": 452,
+    "selected_l2_missing": 0,
+    "valid_l2_overwritten": 0
+  },
+  "guard_or_jev_selected": 1000,
+  "hard_guard_selected": 1000,
+  "interpretation": "Reference alignment only; not observed household behavior accuracy.",
+  "l2_rate": 1.0,
+  "quality_vs_independent_full_l2": {
+    "accuracy": 0.874,
+    "balanced_accuracy": 0.8865169359800169,
+    "macro_f1": 0.8802333466953971,
+    "per_class": {
+      "list_for_rent": {
+        "f1": 0.9202453987730062,
+        "precision": 0.9090909090909091,
+        "recall": 0.9316770186335404,
+        "support": 322
+      },
+      "list_for_sale": {
+        "f1": 0.9714285714285713,
+        "precision": 0.9622641509433962,
+        "recall": 0.9807692307692307,
+        "support": 52
+      },
+      "search_buy": {
+        "f1": 0.9599999999999999,
+        "precision": 0.9473684210526315,
+        "recall": 0.972972972972973,
+        "support": 37
+      },
+      "search_jeonse": {
+        "f1": 0.891566265060241,
+        "precision": 0.896969696969697,
+        "recall": 0.8862275449101796,
+        "support": 167
+      },
+      "search_monthly_rent": {
+        "f1": 0.7671232876712328,
+        "precision": 0.7368421052631579,
+        "recall": 0.8,
+        "support": 105
+      },
+      "stay": {
+        "f1": 0.8235294117647061,
+        "precision": 0.8045977011494253,
+        "recall": 0.8433734939759037,
+        "support": 83
+      },
+      "wait": {
+        "f1": 0.8277404921700224,
+        "precision": 0.8685446009389671,
+        "recall": 0.7905982905982906,
+        "support": 234
+      }
+    }
+  },
+  "records": 1000,
+  "resources": {
+    "accounting_scope": "all paid provider responses, including preserved semantic-format retries",
+    "compact_jev_tokens": 1033242,
+    "full_l2_p95_seconds": 2.6712722909996955,
+    "full_l2_tokens": 2897276,
+    "hybrid_sequential_p95_seconds": 4.529322540999829,
+    "hybrid_tokens": 3931346,
+    "paid_attempts": {
+      "compact_jev": 1000,
+      "full_l2": 1000,
+      "selected_l2": 1000
+    },
+    "selected_l2_tokens": 2898104,
+    "token_saving_rate": -0.35691111236899764
+  },
+  "route_vs_full_l2_change": {
+    "fn": 0,
+    "fp": 675,
+    "precision": 0.325,
+    "recall": 1.0,
+    "tn": 0,
+    "tp": 325
+  }
+}

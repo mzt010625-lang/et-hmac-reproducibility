@@ -1,0 +1,85 @@
+{
+  "coarse_candidates": 512,
+  "decision_precedence_audit": {
+    "final_source_l2_count": 229,
+    "selected_l2_missing": 0,
+    "valid_l2_overwritten": 0
+  },
+  "guard_or_jev_selected": 229,
+  "hard_guard_selected": 226,
+  "interpretation": "Reference alignment only; not observed household behavior accuracy.",
+  "l2_rate": 0.16357142857142856,
+  "quality_vs_independent_full_l2": {
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "macro_f1": 1.0,
+    "per_class": {
+      "list_for_rent": {
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "support": 307
+      },
+      "list_for_sale": {
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "support": 114
+      },
+      "search_buy": {
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "support": 42
+      },
+      "search_jeonse": {
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "support": 87
+      },
+      "search_monthly_rent": {
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "support": 106
+      },
+      "stay": {
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "support": 457
+      },
+      "wait": {
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "support": 287
+      }
+    }
+  },
+  "records": 1400,
+  "resources": {
+    "accounting_scope": "all paid provider responses, including preserved semantic-format retries",
+    "compact_jev_tokens": 471224,
+    "full_l2_p95_seconds": 3.117629334000412,
+    "full_l2_tokens": 3733384,
+    "hybrid_sequential_p95_seconds": 4.741840833000424,
+    "hybrid_tokens": 1099013,
+    "paid_attempts": {
+      "compact_jev": 512,
+      "full_l2": 1402,
+      "selected_l2": 229
+    },
+    "selected_l2_tokens": 627789,
+    "token_saving_rate": 0.7056255129394673
+  },
+  "route_vs_full_l2_change": {
+    "fn": 0,
+    "fp": 29,
+    "precision": 0.8733624454148472,
+    "recall": 1.0,
+    "tn": 1171,
+    "tp": 200
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "all_ids_sha256": "9c1054a51782b559eb4001eec749a9f5527898faa9f46b5c959384627dc06040",
+  "api_calls_performed": 0,
+  "api_key_recorded": false,
+  "cohorts": {
+    "natural": 2000,
+    "policy_ood": 1000,
+    "stress": 1400
+  },
+  "confirmatory_method_evaluation_eligible": true,
+  "created_at_utc": "2026-10-08T08:57:19.366797+00:00",
+  "empirical_out_of_time_policy_ood_eligible": false,
+  "external_upload_authorized": false,
+  "legacy_exposed_holdout_audit_only": 192,
+  "network_called": false,
+  "observed_behavior_accuracy_eligible": false,
+  "output_hashes": {
+    "data/stage9_confirmatory_v1/legacy_exposed_holdout_audit_only.jsonl": "7f3102b59e7cf7aa336a7b8a899e7fda8fb9a730274529b468e9414f2d50b76b",
+    "data/stage9_confirmatory_v1/natural_inputs.jsonl": "0891424d4636d1ae78bee48f6077e7868fd798d807be64906c63c3a653674675",
+    "data/stage9_confirmatory_v1/natural_selection_manifest.jsonl": "1b96e28d406376c8697afdd3141633ed090fab809419d2e10bacd76ed0372755",
+    "data/stage9_confirmatory_v1/natural_source_records.jsonl": "48c9756d0629c274f8714915f815052520de2741d0bf43e45a80c17daac76d7a",
+    "data/stage9_confirmatory_v1/policy_ood_inputs.jsonl": "717dd10e68a302ba506129edc25f542e07a19562b166fb4ba0149f708a869576",
+    "data/stage9_confirmatory_v1/policy_ood_selection_manifest.jsonl": "4cec9482f085ad393a6a0fb1d3a4b87f87bc092241184e78504a320b999dbf2f",
+    "data/stage9_confirmatory_v1/policy_ood_source_records.jsonl": "5cd5ee70ac237cf9f19d0fd83f9a34b4d53c14725353c69f5a340b0af6f4b767",
+    "data/stage9_confirmatory_v1/pre_api_audit.json": "c0c1bcb01a765b03ae771d55b6bffc0c832b920701183a9a06b43450d9392e1b",
+    "data/stage9_confirmatory_v1/stress_inputs.jsonl": "ef23e240db359f08aa418d628df67173989e193491dac47f889636881cb6575a",
+    "data/stage9_confirmatory_v1/stress_selection_manifest.jsonl": "ad5a29f5a8536a8efc77d8b00b82b128c6ef732ad92a464f9e4006e9576b985e",
+    "data/stage9_confirmatory_v1/stress_source_records.jsonl": "9fffb64283975e54d9b0f8c97cbdbc3246f96c0a751c1c11e0d3e82b40adcb3c"
+  },
+  "records": 4400,
+  "response_reuse_between_hybrid_and_full_reference": false,
+  "route_equation": "route_to_l2 = hard_guard_event OR jev_should_escalate",
+  "source_hashes": {
+    "configs/stage9_confirmatory_v1.json": "4e2cc1ca82ed7165530bf3af4afed258e340672dffa7148dfe7a7d30cef0524c",
+    "data/stage2b_candidate_v1/dataset_manifest.json": "6fd1b548c6e16c279b9b538cdebcb46786e386e8d45920ab7af7738d146a6353",
+    "data/stage2b_candidate_v1/records.jsonl": "b4f9d89fb6dee7e39bbb27035042ddf39eb1b71d946ca36140cf53a048cdb875",
+    "data/stage2b_candidate_v1/reference_requests.jsonl": "bb5910fad12547bb7753b39828372eb9e1b1b449160cf88cd7ce8e360186d7e0",
+    "main_stage9_prepare.py": "9d896da184919d98c4fbcf736309e15e8a4d12977464167747c59188d6a51b5a",
+    "rules/rules_v1.json": "05e97fee1cd1523249b0aa7d2c575094b298ddaf8b248d4522e70aefba2e0c28",
+    "runs/stage8_final_guarded_v1/frozen_a790c5427e07e7a2/stage8_final_freeze_manifest.json": "5f1a2b501791a471373b4d324c00db613b61c7ff6937c9c454f50c70178fd363",
+    "runs/stage8c_direct_l2_freeze_v3/frozen_inputs_63d5184ce736f5dc/holdout_inputs.jsonl": "7f3102b59e7cf7aa336a7b8a899e7fda8fb9a730274529b468e9414f2d50b76b",
+    "runs/stage8c_direct_l2_freeze_v3/frozen_inputs_63d5184ce736f5dc/run_manifest.json": "1db63fe58659aa809b6a574d79bdbd1d4359defb611b4e87819758d93a6d71c5"
+  },
+  "status": "FROZEN_STAGE9_INPUTS_AWAITING_EXTERNAL_AUTHORIZATION",
+  "version": "stage9_confirmatory_official_v2"
+}

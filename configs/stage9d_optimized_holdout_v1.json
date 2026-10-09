@@ -1,0 +1,63 @@
+{
+  "config_version": "stage9d_optimized_holdout_v1",
+  "status": "FROZEN_PRE_API_PROTOCOL",
+  "provider": "DeepSeek official OpenAI-compatible endpoint",
+  "base_url": "https://api.deepseek.com",
+  "chat_completions_path": "/chat/completions",
+  "model": "deepseek-flash",
+  "temperature": 0.0,
+  "l2_max_tokens": 16384,
+  "jev_max_tokens": 4096,
+  "timeout_seconds": 300,
+  "max_attempts": 3,
+  "retry_status_codes": [408, 425, 429, 500, 502, 503, 504],
+  "retry_backoff_seconds": [2, 8, 20],
+  "stream": false,
+  "response_format_json_object": true,
+  "thinking": {"type": "disabled"},
+  "reasoning_effort": null,
+  "seed": 20261009,
+  "cohorts": {"natural": 400, "stress": 420, "policy_ood": 200},
+  "natural_design": {
+    "households": 100,
+    "rounds_per_household": 4,
+    "households_per_development_world": 20,
+    "exclude_any_prior_provider_or_stage9_household": true
+  },
+  "stress_design": {
+    "conditions": ["S01", "S02", "S03", "S04", "S05", "S06", "S07"],
+    "records_per_condition": 60,
+    "unique_parent_households_within_condition": true,
+    "paired_with_unseen_natural_households": true
+  },
+  "policy_ood_design": {
+    "conditions": ["P01", "P02", "P03", "P04", "P05"],
+    "records_per_condition": 40,
+    "paired_with_natural_parent_records": true,
+    "claim_boundary": "Synthetic policy-combination robustness test; not empirical out-of-time behavior accuracy."
+  },
+  "execution_order": [
+    "hard_guard_precheck",
+    "compact_jev_only_on_nonhard_coarse_candidates",
+    "freeze_hard_guard_or_jev_route",
+    "independent_selected_l2_for_hybrid",
+    "independent_full_l2_reference_on_every_record"
+  ],
+  "route_equation": "route_to_l2 = hard_guard_event OR jev_should_escalate",
+  "resource_optimization": "Hard-guard records bypass JEV and enter L2 directly.",
+  "decision_precedence": "A valid L2 decision is final; neither JEV nor the fast prior can overwrite it.",
+  "response_reuse_between_hybrid_and_full_reference": false,
+  "token_hard_stop": 9000000,
+  "publication_boundaries": {
+    "agreement_name": "alignment with an independently called full-L2 operational reference",
+    "not_observed_behavior_accuracy": true,
+    "internal_engineering_thresholds_are_not_journal_requirements": true,
+    "test_results_cannot_change_prompts_routes_or_thresholds": true
+  },
+  "external_upload": {
+    "authorization_status": "authorized_in_current_user_request",
+    "records": 1020,
+    "content_class": "synthetic household states, finite memories, policy/market/network evidence and ontology relations",
+    "api_key_must_not_be_written": true
+  }
+}

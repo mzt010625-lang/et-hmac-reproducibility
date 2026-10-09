@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ethmac.local/schema/household_state_v1.schema.json",
+  "title": "Persistent cognitive household state v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["attributes", "beliefs", "goals", "memory", "current_round", "tenure", "liquid_assets", "liquidity_pressure", "satisfaction", "regret"],
+  "properties": {
+    "attributes": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["household_id", "age", "household_size", "income_monthly", "initial_tenure", "dwelling_type", "lifecycle_stage", "improvement_goal", "liquidity_pressure", "loss_aversion", "risk_perception", "residential_attachment", "policy_trust_tendency", "peer_sensitivity"],
+      "properties": {
+        "household_id": {"type": "string", "minLength": 1},
+        "age": {"type": "integer", "minimum": 18, "maximum": 100},
+        "household_size": {"type": "integer", "minimum": 1, "maximum": 15},
+        "income_monthly": {"type": "number", "minimum": 0},
+        "initial_tenure": {"enum": ["owner", "jeonse", "monthly_rent", "other"]},
+        "dwelling_type": {"enum": ["apartment", "detached", "multi_family", "officetel", "other"]},
+        "lifecycle_stage": {"enum": ["single", "new_family", "child_rearing", "mature_family", "empty_nest", "retired"]},
+        "improvement_goal": {"type": "number", "minimum": 0, "maximum": 1},
+        "liquidity_pressure": {"type": "number", "minimum": 0, "maximum": 1},
+        "loss_aversion": {"type": "number", "minimum": 0, "maximum": 1},
+        "risk_perception": {"type": "number", "minimum": 0, "maximum": 1},
+        "residential_attachment": {"type": "number", "minimum": 0, "maximum": 1},
+        "policy_trust_tendency": {"type": "number", "minimum": 0, "maximum": 1},
+        "peer_sensitivity": {"type": "number", "minimum": 0, "maximum": 1}
+      }
+    },
+    "beliefs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["price_growth_expectation", "policy_eligibility_prob", "affordability_prob", "channel_trust", "action_success_prob", "action_success_counts", "policy_duration_expectation", "uncertainty"],
+      "properties": {
+        "price_growth_expectation": {"type": "number", "minimum": -0.2, "maximum": 0.2},
+        "policy_eligibility_prob": {"type": "number", "minimum": 0, "maximum": 1},
+        "affordability_prob": {"type": "number", "minimum": 0, "maximum": 1},
+        "channel_trust": {"type": "object", "required": ["official", "relative", "neighbor", "online"], "additionalProperties": {"type": "number", "minimum": 0, "maximum": 1}},
+        "action_success_prob": {"type": "object", "additionalProperties": {"type": "number", "minimum": 0, "maximum": 1}},
+        "action_success_counts": {"type": "object", "additionalProperties": {"type": "array", "prefixItems": [{"type": "number", "minimum": 1}, {"type": "number", "minimum": 1}], "minItems": 2, "maxItems": 2}},
+        "policy_duration_expectation": {"type": "number", "minimum": 0, "maximum": 12},
+        "uncertainty": {"type": "object", "additionalProperties": {"type": "number", "minimum": 0, "maximum": 1}}
+      }
+    },
+    "goals": {"type": "object", "minProperties": 1, "additionalProperties": {"type": "number", "minimum": 0, "maximum": 1}},
+    "memory": {"type": "array", "maxItems": 12, "items": {"type": "object"}},
+    "current_round": {"type": "integer", "minimum": 0},
+    "tenure": {"enum": ["owner", "jeonse", "monthly_rent", "other"]},
+    "liquid_assets": {"type": "number", "minimum": 0},
+    "liquidity_pressure": {"type": "number", "minimum": 0, "maximum": 1},
+    "satisfaction": {"type": "number", "minimum": 0, "maximum": 1},
+    "regret": {"type": "number", "minimum": 0, "maximum": 1}
+  }
+}

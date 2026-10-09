@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "L2 Direct Household Decision v5",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["v", "id", "action", "confidence", "evidence", "belief_updates", "memory_updates"],
+  "properties": {
+    "v": {"const": "l2_direct_decision_v5"},
+    "id": {"type": "string"},
+    "action": {"enum": ["stay", "wait", "search_buy", "search_jeonse", "search_monthly_rent", "list_for_sale", "list_for_rent"]},
+    "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+    "evidence": {"type": "array", "maxItems": 4, "items": {"type": "string"}, "uniqueItems": true},
+    "belief_updates": {"type": "array", "uniqueItems": true, "items": {"enum": ["REASSESS_ELIGIBILITY", "REASSESS_AFFORDABILITY", "UPDATE_PRICE_EXPECTATION", "UPDATE_SOURCE_TRUST"]}},
+    "memory_updates": {"type": "array", "uniqueItems": true, "items": {"enum": ["RECORD_SEARCH_OUTCOME", "RECORD_TRANSACTION_OUTCOME", "NO_DIRECT_UPDATE"]}}
+  }
+}

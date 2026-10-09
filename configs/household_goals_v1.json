@@ -1,0 +1,17 @@
+{
+  "version": "household_goals_v1",
+  "goal_names": ["housing_adequacy", "financial_security", "mobility", "family_stability", "policy_opportunity"],
+  "constraints": {
+    "minimum_weight": 0.0,
+    "maximum_weight": 1.0,
+    "sum_tolerance": 1e-9
+  },
+  "default_weights": {
+    "housing_adequacy": 0.25,
+    "financial_security": 0.30,
+    "mobility": 0.10,
+    "family_stability": 0.25,
+    "policy_opportunity": 0.10
+  }
+}
+

@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ethmac.local/schema/l2_request_v1.schema.json",
+  "title": "System-2 visible-state deliberation request",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "request_id", "record_id", "decision_version",
+    "household_id", "snapshot_round", "visible_cutoff", "allowed_actions",
+    "household_state", "visible_evidence", "ontology_context",
+    "memory_summary", "decision_objectives"
+  ],
+  "properties": {
+    "schema_version": {"const": "l2_request_v1"},
+    "request_id": {"type": "string", "minLength": 1},
+    "record_id": {"type": "string", "minLength": 1},
+    "decision_version": {"type": "string", "minLength": 1},
+    "household_id": {"type": "string", "minLength": 1},
+    "snapshot_round": {"type": "integer", "minimum": 0},
+    "visible_cutoff": {"type": "integer", "minimum": 0},
+    "allowed_actions": {
+      "type": "array", "minItems": 1, "uniqueItems": true,
+      "items": {"enum": ["stay", "wait", "search_buy", "search_jeonse", "search_monthly_rent", "list_for_sale", "list_for_rent"]}
+    },
+    "household_state": {"type": "object"},
+    "visible_evidence": {"type": "array", "items": {"type": "object"}},
+    "ontology_context": {"type": "object"},
+    "memory_summary": {"type": "array"},
+    "decision_objectives": {"type": "object", "additionalProperties": {"type": "number", "minimum": 0, "maximum": 1}}
+  }
+}

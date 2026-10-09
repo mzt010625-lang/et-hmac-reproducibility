@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ethmac.local/schema/guard_result_v1.schema.json",
+  "title": "Objective hard-guard result",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["accepted", "failure_reason", "details", "guard_version"],
+  "properties": {
+    "accepted": {"type": "boolean"},
+    "failure_reason": {
+      "type": ["string", "null"],
+      "enum": [null, "transport_error", "timeout", "parse_error", "schema_error", "action_illegal", "objective_infeasible", "evidence_out_of_scope", "future_information", "value_out_of_range", "stale_snapshot"]
+    },
+    "details": {"type": "array", "items": {"type": "string"}},
+    "guard_version": {"const": "hard_guard_v1"}
+  }
+}

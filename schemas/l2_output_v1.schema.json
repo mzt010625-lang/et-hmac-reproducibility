@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ethmac.local/schema/l2_output_v1.schema.json",
+  "title": "System-2 structured decision output",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "request_id", "record_id", "decision_version", "action",
+    "confidence", "evidence_ids", "rationale_codes", "state_update_codes"
+  ],
+  "properties": {
+    "schema_version": {"const": "l2_output_v1"},
+    "request_id": {"type": "string", "minLength": 1},
+    "record_id": {"type": "string", "minLength": 1},
+    "decision_version": {"type": "string", "minLength": 1},
+    "action": {"enum": ["stay", "wait", "search_buy", "search_jeonse", "search_monthly_rent", "list_for_sale", "list_for_rent"]},
+    "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+    "evidence_ids": {"type": "array", "maxItems": 5, "uniqueItems": true, "items": {"type": "string"}},
+    "rationale_codes": {
+      "type": "array", "minItems": 1, "maxItems": 5, "uniqueItems": true,
+      "items": {"enum": ["POLICY_EVIDENCE", "AFFORDABILITY", "LIQUIDITY", "RISK", "NETWORK", "MEMORY", "GOAL_TRADEOFF", "UNCERTAINTY"]}
+    },
+    "state_update_codes": {
+      "type": "array", "maxItems": 5, "uniqueItems": true,
+      "items": {"enum": ["REASSESS_ELIGIBILITY", "REASSESS_AFFORDABILITY", "UPDATE_PRICE_EXPECTATION", "UPDATE_SOURCE_TRUST", "RECORD_SEARCH_OUTCOME", "RECORD_TRANSACTION_OUTCOME", "NO_DIRECT_UPDATE"]}
+    }
+  }
+}

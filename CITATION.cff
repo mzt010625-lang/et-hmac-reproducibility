@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: If you use this software or data, please cite the associated manuscript.
+title: ET-HMAC reproducibility package
+type: software
+authors:
+  - family-names: Ma
+    given-names: Ziteng
+    orcid: https://orcid.org/0009-0000-0015-4497
+institution: China Academy of Information and Communications Technology
+date-released: 2026-10-09

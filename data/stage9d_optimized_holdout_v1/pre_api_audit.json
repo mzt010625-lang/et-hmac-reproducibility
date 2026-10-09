@@ -1,0 +1,57 @@
+{
+  "banned_target_key_hits": [],
+  "coarse_candidates": {
+    "natural": 90,
+    "policy_ood": 200,
+    "stress": 122
+  },
+  "counts": {
+    "natural": 400,
+    "policy_ood": 200,
+    "stress": 420
+  },
+  "excluded_prior_households": 2384,
+  "future_evidence_count": 0,
+  "hard_guard_candidates": {
+    "natural": 19,
+    "policy_ood": 200,
+    "stress": 33
+  },
+  "interpretation_boundaries": [
+    "Synthetic household-event records, not observed choices.",
+    "Full-L2 alignment is not real-world behavior accuracy.",
+    "Stage 9D tests a frozen post-Stage-9 architecture on 100 households never sent to a provider before this stage.",
+    "Natural, stress and policy-OOD records are paired within those households; inference must cluster by household."
+  ],
+  "natural_complete_four_round_households": 100,
+  "natural_stress_household_overlap": 100,
+  "natural_unique_households": 100,
+  "network_called": false,
+  "nonhard_jev_candidates": {
+    "natural": 71,
+    "policy_ood": 0,
+    "stress": 89
+  },
+  "paired_design": true,
+  "policy_ood_condition_counts": {
+    "P01": 40,
+    "P02": 40,
+    "P03": 40,
+    "P04": 40,
+    "P05": 40
+  },
+  "record_overlap_with_prior_provider_responses": 0,
+  "record_overlap_with_stage9": 0,
+  "status": "PASS_STAGE9D_PRE_API_ISOLATION_GATE",
+  "stress_condition_counts": {
+    "S01": 60,
+    "S02": 60,
+    "S03": 60,
+    "S04": 60,
+    "S05": 60,
+    "S06": 60,
+    "S07": 60
+  },
+  "stress_unique_households": 100,
+  "total_records": 1020
+}

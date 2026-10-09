@@ -1,0 +1,8 @@
+{
+  "files": {
+    "STAGE9G_DEPLOYMENT_REPORT.md": "969f769c9e95228a1bf2656d695a5f25ab51af65caa72938616806fec33d5c3d",
+    "stage9g_deployment_metrics.json": "eecb8b4eb66a6177925360027fc6ba9e0ab16b034ceb4ab45089839bf93da7d1"
+  },
+  "source_run": "runs/stage9d_optimized_holdout_v1/frozen_8058ea605c2771e8",
+  "status": "FROZEN_STAGE9G_LOCAL_DEPLOYMENT_BENCHMARK_COMPLETE"
+}

@@ -1,0 +1,88 @@
+{
+  "banned_target_key_hits": [],
+  "coarse_candidates": {
+    "natural": 633,
+    "policy_ood": 1000,
+    "stress": 512
+  },
+  "counts": {
+    "natural": 2000,
+    "policy_ood": 1000,
+    "stress": 1400
+  },
+  "excluded_stage7_stage8_households": 484,
+  "future_evidence_count": 0,
+  "hard_guard_candidates": {
+    "natural": 270,
+    "policy_ood": 1000,
+    "stress": 226
+  },
+  "interpretation_boundaries": [
+    "Household profiles are source-conditioned synthetic population records, not observed household choices.",
+    "The 2,000-record natural cohort was frozen after Stage 8 from households never selected or sent to an API; it is confirmatory for method comparison but was not an originally preregistered out-of-time test.",
+    "The policy-OOD cohort contains frozen synthetic unseen policy combinations, not empirical future policy observations.",
+    "Agreement with full L2 is operational-reference alignment, not real-world behavioral accuracy.",
+    "The historical 192-record file is excluded: all 192 IDs already appeared in Stage 8A/8B provider responses despite later documents calling them unopened."
+  ],
+  "legacy_exposed_holdout_prior_response_overlap": 192,
+  "legacy_exposed_holdout_records": 192,
+  "legacy_holdout_excluded_from_stage9_api_and_confirmatory_statistics": true,
+  "natural_complete_four_round_households": 500,
+  "natural_round_counts": {
+    "1": 500,
+    "2": 500,
+    "3": 500,
+    "4": 500
+  },
+  "natural_stress_household_overlap": 0,
+  "natural_unique_households": 500,
+  "natural_world_counts": {
+    "WORLD-2013-KR-11-11110": 100,
+    "WORLD-2013-KR-11-11140": 100,
+    "WORLD-2013-KR-11-11200": 100,
+    "WORLD-2013-KR-11-11215": 100,
+    "WORLD-2013-KR-11-11230": 100,
+    "WORLD-2013-KR-11-11260": 100,
+    "WORLD-2013-KR-11-11290": 100,
+    "WORLD-2013-KR-11-11305": 100,
+    "WORLD-2013-KR-11-11320": 100,
+    "WORLD-2013-KR-11-11350": 100,
+    "WORLD-2013-KR-11-11380": 100,
+    "WORLD-2013-KR-11-11410": 100,
+    "WORLD-2013-KR-11-11440": 100,
+    "WORLD-2013-KR-11-11530": 100,
+    "WORLD-2013-KR-11-11545": 100,
+    "WORLD-2013-KR-11-11560": 100,
+    "WORLD-2013-KR-11-11590": 100,
+    "WORLD-2013-KR-11-11620": 100,
+    "WORLD-2013-KR-11-11650": 100,
+    "WORLD-2013-KR-11-11680": 100
+  },
+  "network_called": false,
+  "policy_ood_condition_counts": {
+    "P01": 200,
+    "P02": 200,
+    "P03": 200,
+    "P04": 200,
+    "P05": 200
+  },
+  "prior_provider_record_ids_scanned": 496,
+  "provider_records_sent": 0,
+  "record_overlap_with_prior_provider_responses": 0,
+  "status": "PASS_STAGE9_PRE_API_DATA_GATE",
+  "stress_condition_counts": {
+    "S01": 200,
+    "S02": 200,
+    "S03": 200,
+    "S04": 200,
+    "S05": 200,
+    "S06": 200,
+    "S07": 200
+  },
+  "stress_source_split_counts": {
+    "development": 1372,
+    "pilot": 28
+  },
+  "stress_unique_households": 1400,
+  "total_records": 4400
+}

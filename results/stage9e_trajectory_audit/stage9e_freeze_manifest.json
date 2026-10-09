@@ -1,0 +1,8 @@
+{
+  "files": {
+    "STAGE9E_TRAJECTORY_AUDIT_REPORT.md": "dc620f621999569cb3e92cb666b084ba5765941646d1bfd8ba975510ff47d405",
+    "stage9e_trajectory_metrics.json": "b88cff562bc3e32cc764d93d7320e5144cb9e71479ee42339873e1164a080cb9"
+  },
+  "source_run": "runs/stage9d_optimized_holdout_v1/frozen_8058ea605c2771e8",
+  "status": "FROZEN_STAGE9E_LONGITUDINAL_AND_SOFTWARE_GATE_COMPLETE"
+}

@@ -1,0 +1,44 @@
+@prefix eh: <https://ethmac.local/ontology/v9#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+eh:OntologyV9 a owl:Ontology ;
+  rdfs:label "ET-HMAC v9 social simulation ontology"@en .
+
+eh:Household a owl:Class .
+eh:BeliefState a owl:Class .
+eh:GoalProfile a owl:Class .
+eh:MemoryItem a owl:Class .
+eh:Evidence a owl:Class .
+eh:PolicyEvent a owl:Class ; rdfs:subClassOf eh:Evidence .
+eh:MarketObservation a owl:Class ; rdfs:subClassOf eh:Evidence .
+eh:SocialObservation a owl:Class ; rdfs:subClassOf eh:Evidence .
+eh:SocialTie a owl:Class .
+eh:Action a owl:Class .
+eh:MarketOutcome a owl:Class .
+eh:DecisionTrace a owl:Class .
+
+eh:hasBeliefState a owl:ObjectProperty ; rdfs:domain eh:Household ; rdfs:range eh:BeliefState .
+eh:hasGoalProfile a owl:ObjectProperty ; rdfs:domain eh:Household ; rdfs:range eh:GoalProfile .
+eh:remembers a owl:ObjectProperty ; rdfs:domain eh:Household ; rdfs:range eh:MemoryItem .
+eh:observedEvidence a owl:ObjectProperty ; rdfs:domain eh:Household ; rdfs:range eh:Evidence .
+eh:connectedTo a owl:ObjectProperty ; rdfs:domain eh:Household ; rdfs:range eh:Household .
+eh:supportsAction a owl:ObjectProperty ; rdfs:domain eh:Evidence ; rdfs:range eh:Action .
+eh:resultedFrom a owl:ObjectProperty ; rdfs:domain eh:MarketOutcome ; rdfs:range eh:Action .
+eh:hasProvenance a owl:DatatypeProperty ; rdfs:domain eh:Evidence ; rdfs:range xsd:string .
+eh:visibleFrom a owl:DatatypeProperty ; rdfs:domain eh:Evidence ; rdfs:range xsd:integer .
+eh:expiresAfter a owl:DatatypeProperty ; rdfs:domain eh:Evidence ; rdfs:range xsd:integer .
+eh:sourceChannel a owl:DatatypeProperty ; rdfs:domain eh:Evidence ; rdfs:range xsd:string .
+eh:ruleId a owl:DatatypeProperty ; rdfs:domain eh:DecisionTrace ; rdfs:range xsd:string .
+eh:ruleStatus a owl:DatatypeProperty ; rdfs:domain eh:DecisionTrace ; rdfs:range xsd:string .
+
+eh:stay a eh:Action .
+eh:wait a eh:Action .
+eh:search_buy a eh:Action .
+eh:search_jeonse a eh:Action .
+eh:search_monthly_rent a eh:Action .
+eh:list_for_sale a eh:Action .
+eh:list_for_rent a eh:Action .
+

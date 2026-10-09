@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "behavior_audit_v3.schema.json",
+  "title": "ET-HMAC Behavior Semantic Audit v3",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "v", "id", "identity_fit", "context_fit", "action_vote", "confidence",
+    "override_request", "override_code", "evidence", "belief_updates", "memory_updates"
+  ],
+  "properties": {
+    "v": {"const": "behavior_audit_v3"},
+    "id": {"type": "string", "minLength": 1},
+    "identity_fit": {"enum": ["SUPPORTS_PRIOR", "CONFLICTS_PRIOR", "NEUTRAL"]},
+    "context_fit": {"enum": ["SUPPORTS_PRIOR", "SUPPORTS_ALTERNATIVE", "NEUTRAL"]},
+    "action_vote": {"type": "string"},
+    "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+    "override_request": {"type": "boolean"},
+    "override_code": {"enum": ["NONE", "MARKET_INFEASIBLE", "RECENT_MEMORY_FAILURE", "VALID_POLICY_BARRIER", "VALID_POLICY_ENABLEMENT"]},
+    "evidence": {"type": "array", "maxItems": 4, "uniqueItems": true, "items": {"type": "string"}},
+    "belief_updates": {"type": "array", "uniqueItems": true, "items": {"enum": ["REASSESS_ELIGIBILITY", "REASSESS_AFFORDABILITY", "UPDATE_PRICE_EXPECTATION", "UPDATE_SOURCE_TRUST"]}},
+    "memory_updates": {"type": "array", "uniqueItems": true, "items": {"enum": ["RECORD_SEARCH_OUTCOME", "RECORD_TRANSACTION_OUTCOME", "NO_DIRECT_UPDATE"]}}
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "version": "rules_v1",
+  "tie_break_order": ["stay", "wait", "search_buy", "search_jeonse", "search_monthly_rent", "list_for_sale", "list_for_rent"],
+  "rules": [
+    {
+      "id": "H001_OWNER_REQUIRED_FOR_SALE",
+      "type": "hard",
+      "priority": 100,
+      "when": [{"path": "state.tenure", "op": "ne", "value": "owner"}],
+      "effect": {"block": ["list_for_sale"]},
+      "reason": "Only an owner may list the dwelling for sale."
+    },
+    {
+      "id": "H002_OWNER_REQUIRED_FOR_RENT_LISTING",
+      "type": "hard",
+      "priority": 100,
+      "when": [{"path": "state.tenure", "op": "ne", "value": "owner"}],
+      "effect": {"block": ["list_for_rent"]},
+      "reason": "Only an owner may list the dwelling for rent."
+    },
+    {
+      "id": "D001_AFFORDABLE_BUY",
+      "type": "default",
+      "priority": 50,
+      "when": [{"path": "state.beliefs.affordability_prob", "op": "ge", "value": 0.65}],
+      "effect": {"support": {"search_buy": 2.0}},
+      "reason": "Subjective affordability supports purchase search."
+    },
+    {
+      "id": "D002_IMPROVEMENT_GOAL",
+      "type": "default",
+      "priority": 45,
+      "when": [{"path": "state.attributes.improvement_goal", "op": "ge", "value": 0.65}],
+      "effect": {"support": {"search_buy": 1.0}},
+      "reason": "A strong housing-improvement goal supports search."
+    },
+    {
+      "id": "D003_POLICY_ELIGIBILITY",
+      "type": "default",
+      "priority": 55,
+      "when": [{"path": "state.beliefs.policy_eligibility_prob", "op": "ge", "value": 0.7}],
+      "effect": {"support": {"search_buy": 1.2}},
+      "reason": "Perceived policy eligibility supports purchase search."
+    },
+    {
+      "id": "D004_LIQUIDITY_PRESSURE",
+      "type": "default",
+      "priority": 55,
+      "when": [{"path": "state.liquidity_pressure", "op": "ge", "value": 0.75}],
+      "effect": {"support": {"wait": 1.5, "search_monthly_rent": 1.0}},
+      "reason": "High liquidity pressure favors delay or lower upfront cost."
+    },
+    {
+      "id": "D005_RESIDENTIAL_ATTACHMENT",
+      "type": "default",
+      "priority": 40,
+      "when": [{"path": "state.attributes.residential_attachment", "op": "ge", "value": 0.75}],
+      "effect": {"support": {"stay": 1.3}},
+      "reason": "Residential attachment supports staying."
+    },
+    {
+      "id": "D006_OWNER_LIQUIDITY_RELEASE",
+      "type": "default",
+      "priority": 48,
+      "when": [
+        {"path": "state.tenure", "op": "eq", "value": "owner"},
+        {"path": "state.liquidity_pressure", "op": "ge", "value": 0.8}
+      ],
+      "effect": {"support": {"list_for_sale": 1.4}},
+      "reason": "An owner under acute liquidity pressure may list for sale."
+    },
+    {
+      "id": "E001_HIGH_RISK_SUPPRESSES_BUY_DEFAULTS",
+      "type": "exception",
+      "priority": 80,
+      "when": [{"path": "state.attributes.risk_perception", "op": "ge", "value": 0.8}],
+      "effect": {"suppress_rules": ["D001_AFFORDABLE_BUY", "D002_IMPROVEMENT_GOAL"]},
+      "reason": "High perceived risk defeats generic purchase defaults."
+    },
+    {
+      "id": "E002_LOW_AFFORDABILITY_SUPPRESSES_POLICY_PUSH",
+      "type": "exception",
+      "priority": 85,
+      "when": [{"path": "state.beliefs.affordability_prob", "op": "lt", "value": 0.35}],
+      "effect": {"suppress_rules": ["D003_POLICY_ELIGIBILITY"]},
+      "reason": "Eligibility alone does not restore affordability."
+    },
+    {
+      "id": "E003_LOW_TRUST_POLICY_SOURCE",
+      "type": "exception",
+      "priority": 86,
+      "when": [{"path": "context.policy_source_trust", "op": "lt", "value": 0.5}],
+      "effect": {"suppress_rules": ["D003_POLICY_ELIGIBILITY"]},
+      "reason": "A low-trust policy source defeats unverified eligibility support."
+    },
+    {
+      "id": "R001_VERIFIED_OFFICIAL_GUARANTEE_RESTORES_ELIGIBILITY",
+      "type": "restoration",
+      "priority": 90,
+      "when": [
+        {"path": "context.official_eligibility_verified", "op": "eq", "value": true},
+        {"path": "state.beliefs.affordability_prob", "op": "ge", "value": 0.35}
+      ],
+      "effect": {"restore_rules": ["D003_POLICY_ELIGIBILITY"]},
+      "reason": "Verified official eligibility can restore the policy support rule, but not defeat hard affordability evidence."
+    },
+    {
+      "id": "S001_PEER_BUY_SIGNAL",
+      "type": "soft",
+      "priority": 20,
+      "when": [
+        {"path": "context.peer_buy_share", "op": "ge", "value": 0.55},
+        {"path": "state.attributes.peer_sensitivity", "op": "ge", "value": 0.5}
+      ],
+      "effect": {"support": {"search_buy": 0.5}},
+      "reason": "Peer behavior supplies weak, defeasible support."
+    }
+  ]
+}

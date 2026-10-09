@@ -1,0 +1,355 @@
+{
+  "all_valid_selected_l2_final": true,
+  "bootstrap": {
+    "cluster_unit": "household",
+    "clusters": 100,
+    "metrics": {
+      "accuracy": {
+        "ci95": [
+          0.9683116614151097,
+          0.9867211440245148
+        ],
+        "point": 0.9774509803921568
+      },
+      "balanced_accuracy": {
+        "ci95": [
+          0.9348824046090382,
+          0.9824114586278184
+        ],
+        "point": 0.9647567120853064
+      },
+      "l2_rate": {
+        "ci95": [
+          0.19935235051881645,
+          0.2954803564069257
+        ],
+        "point": 0.24803921568627452
+      },
+      "macro_f1": {
+        "ci95": [
+          0.9389991288953802,
+          0.9827630822315834
+        ],
+        "point": 0.9669720409742489
+      },
+      "token_saving_rate": {
+        "ci95": [
+          0.6318628943387807,
+          0.7361174654229151
+        ],
+        "point": 0.6835924575828111
+      }
+    },
+    "replicates": 2000
+  },
+  "by_cohort": {
+    "natural": {
+      "accuracy": 1.0,
+      "balanced_accuracy": 1.0,
+      "decision_precedence": {
+        "selected_l2_final": 19,
+        "valid_l2_overwritten": 0
+      },
+      "hard_guard": 19,
+      "interpretation": "Independent full-L2 alignment, not observed household behavior accuracy.",
+      "jev_calls": 71,
+      "l2_calls": 19,
+      "l2_rate": 0.0475,
+      "macro_f1": 1.0,
+      "per_class": {
+        "list_for_rent": {
+          "f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "support": 76
+        },
+        "list_for_sale": {
+          "f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "support": 16
+        },
+        "search_buy": {
+          "f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "support": 24
+        },
+        "search_jeonse": {
+          "f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "support": 11
+        },
+        "search_monthly_rent": {
+          "f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "support": 24
+        },
+        "stay": {
+          "f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "support": 205
+        },
+        "wait": {
+          "f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "support": 44
+        }
+      },
+      "records": 400,
+      "resources": {
+        "full_l2_p95_seconds": 2.095661874999962,
+        "full_l2_tokens": 1060615,
+        "hybrid_p95_seconds": 1.916761000000001,
+        "hybrid_tokens": 118618,
+        "jev_tokens": 66441,
+        "selected_l2_tokens": 52177,
+        "token_saving_rate": 0.8881611140706099
+      },
+      "route_vs_full_l2_change": {
+        "fn": 0,
+        "fp": 2,
+        "precision": 0.8947368421052632,
+        "recall": 1.0,
+        "tn": 381,
+        "tp": 17
+      }
+    },
+    "policy_ood": {
+      "accuracy": 0.885,
+      "balanced_accuracy": 0.8717075836677166,
+      "decision_precedence": {
+        "selected_l2_final": 200,
+        "valid_l2_overwritten": 0
+      },
+      "hard_guard": 200,
+      "interpretation": "Independent full-L2 alignment, not observed household behavior accuracy.",
+      "jev_calls": 0,
+      "l2_calls": 200,
+      "l2_rate": 1.0,
+      "macro_f1": 0.8547161380384427,
+      "per_class": {
+        "list_for_rent": {
+          "f1": 0.9402985074626866,
+          "precision": 0.9264705882352942,
+          "recall": 0.9545454545454546,
+          "support": 66
+        },
+        "list_for_sale": {
+          "f1": 0.923076923076923,
+          "precision": 0.8571428571428571,
+          "recall": 1.0,
+          "support": 6
+        },
+        "search_buy": {
+          "f1": 0.9333333333333333,
+          "precision": 0.9333333333333333,
+          "recall": 0.9333333333333333,
+          "support": 45
+        },
+        "search_jeonse": {
+          "f1": 0.8571428571428571,
+          "precision": 0.9230769230769231,
+          "recall": 0.8,
+          "support": 15
+        },
+        "search_monthly_rent": {
+          "f1": 0.689655172413793,
+          "precision": 0.6666666666666666,
+          "recall": 0.7142857142857143,
+          "support": 14
+        },
+        "stay": {
+          "f1": 0.8,
+          "precision": 0.7142857142857143,
+          "recall": 0.9090909090909091,
+          "support": 11
+        },
+        "wait": {
+          "f1": 0.8395061728395061,
+          "precision": 0.8947368421052632,
+          "recall": 0.7906976744186046,
+          "support": 43
+        }
+      },
+      "records": 200,
+      "resources": {
+        "full_l2_p95_seconds": 2.345424084000115,
+        "full_l2_tokens": 579770,
+        "hybrid_p95_seconds": 2.2767495840002994,
+        "hybrid_tokens": 579911,
+        "jev_tokens": 0,
+        "selected_l2_tokens": 579911,
+        "token_saving_rate": -0.0002431998896113008
+      },
+      "route_vs_full_l2_change": {
+        "fn": 0,
+        "fp": 144,
+        "precision": 0.28,
+        "recall": 1.0,
+        "tn": 0,
+        "tp": 56
+      }
+    },
+    "stress": {
+      "accuracy": 1.0,
+      "balanced_accuracy": 1.0,
+      "decision_precedence": {
+        "selected_l2_final": 34,
+        "valid_l2_overwritten": 0
+      },
+      "hard_guard": 33,
+      "interpretation": "Independent full-L2 alignment, not observed household behavior accuracy.",
+      "jev_calls": 89,
+      "l2_calls": 34,
+      "l2_rate": 0.08095238095238096,
+      "macro_f1": 1.0,
+      "per_class": {
+        "list_for_rent": {
+          "f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "support": 69
+        },
+        "list_for_sale": {
+          "f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "support": 22
+        },
+        "search_buy": {
+          "f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "support": 15
+        },
+        "search_jeonse": {
+          "f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "support": 10
+        },
+        "search_monthly_rent": {
+          "f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "support": 36
+        },
+        "stay": {
+          "f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "support": 197
+        },
+        "wait": {
+          "f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "support": 71
+        }
+      },
+      "records": 420,
+      "resources": {
+        "full_l2_p95_seconds": 2.178378458999987,
+        "full_l2_tokens": 1110033,
+        "hybrid_p95_seconds": 1.97792687499998,
+        "hybrid_tokens": 171724,
+        "jev_tokens": 80620,
+        "selected_l2_tokens": 91104,
+        "token_saving_rate": 0.8452982929336335
+      },
+      "route_vs_full_l2_change": {
+        "fn": 0,
+        "fp": 14,
+        "precision": 0.5882352941176471,
+        "recall": 1.0,
+        "tn": 386,
+        "tp": 20
+      }
+    }
+  },
+  "claim_boundary": "Model-reference alignment only; not real-world household behavior accuracy.",
+  "generated_at_utc": "2026-10-09T04:26:53.465802+00:00",
+  "hard_guard_bypass_confirmed": true,
+  "overall": {
+    "accuracy": 0.9774509803921568,
+    "balanced_accuracy": 0.9647567120853064,
+    "decision_precedence": {
+      "selected_l2_final": 253,
+      "valid_l2_overwritten": 0
+    },
+    "hard_guard": 252,
+    "interpretation": "Independent full-L2 alignment, not observed household behavior accuracy.",
+    "jev_calls": 160,
+    "l2_calls": 253,
+    "l2_rate": 0.24803921568627452,
+    "macro_f1": 0.9669720409742489,
+    "per_class": {
+      "list_for_rent": {
+        "f1": 0.9811320754716982,
+        "precision": 0.9765258215962441,
+        "recall": 0.985781990521327,
+        "support": 211
+      },
+      "list_for_sale": {
+        "f1": 0.9887640449438202,
+        "precision": 0.9777777777777777,
+        "recall": 1.0,
+        "support": 44
+      },
+      "search_buy": {
+        "f1": 0.9642857142857143,
+        "precision": 0.9642857142857143,
+        "recall": 0.9642857142857143,
+        "support": 84
+      },
+      "search_jeonse": {
+        "f1": 0.9428571428571428,
+        "precision": 0.9705882352941176,
+        "recall": 0.9166666666666666,
+        "support": 36
+      },
+      "search_monthly_rent": {
+        "f1": 0.9395973154362416,
+        "precision": 0.9333333333333333,
+        "recall": 0.9459459459459459,
+        "support": 74
+      },
+      "stay": {
+        "f1": 0.9939686369119421,
+        "precision": 0.9903846153846154,
+        "recall": 0.9975786924939467,
+        "support": 413
+      },
+      "wait": {
+        "f1": 0.9581993569131834,
+        "precision": 0.9738562091503268,
+        "recall": 0.9430379746835443,
+        "support": 158
+      }
+    },
+    "records": 1020,
+    "resources": {
+      "full_l2_p95_seconds": 2.203614000000016,
+      "full_l2_tokens": 2750418,
+      "hybrid_p95_seconds": 2.1595155829995747,
+      "hybrid_tokens": 870253,
+      "jev_tokens": 147061,
+      "selected_l2_tokens": 723192,
+      "token_saving_rate": 0.6835924575828111
+    },
+    "route_vs_full_l2_change": {
+      "fn": 0,
+      "fp": 160,
+      "precision": 0.3675889328063241,
+      "recall": 1.0,
+      "tn": 767,
+      "tp": 93
+    }
+  },
+  "status": "FROZEN_STAGE9D_COMPLETE"
+}
