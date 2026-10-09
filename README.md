@@ -1,12 +1,12 @@
 # ET-HMAC reproducibility package
 
-This repository contains the public reproducibility materials for **Ontology-Guided Selective Deliberation for Resource-Efficient Large-Language-Model-Driven Agent-Based Simulation**.
+This repository contains the public reproducibility materials for **Executable Semantic Contracts for Selective LLM Invocation in Agent-Based Simulation**.
 
 Repository: https://github.com/mzt010625-lang/et-hmac-reproducibility
 
 ## Primary frozen result
 
-On the independent 1,020-record Stage 9D holdout, the hybrid system reached 97.75% agreement with a separately executed full-L2 operational reference, 96.48% balanced agreement, and 96.70% macro-F1 while reducing tokens by 68.36% and invoking L2 for 24.80% of opportunities. Two domain experts completed a blinded review of 500 frozen cases; their adjudicated consensus matched the full-L2 reference in all 500 cases. The first set of numbers are model-reference metrics and the second is expert face-validity evidence; neither is observed household-behaviour accuracy.
+On the independent 1,020-record Stage 9D holdout, the hybrid system reached 97.75% agreement with a separately executed full-L2 operational reference, 96.48% balanced agreement, and 96.70% macro-F1 while reducing tokens by 68.36% and invoking L2 for 24.80% of opportunities. These are model-reference metrics, not observed household-behaviour accuracy. All 23 mismatches occurred in the policy-OOD cohort; 21 reflected asymmetric evidence-reference validation and two reflected different valid L2 outputs.
 
 ## Architecture
 
@@ -19,7 +19,7 @@ On the independent 1,020-record Stage 9D holdout, the hybrid system reached 97.7
 
 - `src/`: implementation modules;
 - `configs/`, `prompts/`, `schemas/`, `ontology/`, `rules/`: frozen contracts;
-- `data/`: synthetic Stage 9 development and Stage 9D holdout inputs plus the expert-review pack;
+- `data/`: synthetic Stage 9 development and Stage 9D holdout inputs;
 - `results/`: frozen metrics, parsed decisions, routing ledgers, and manifests;
 - `tests/`: unit, contract, leakage, and L2-authority tests;
 - `documentation/`: manuscript source and final evidence-boundary reports.
@@ -37,7 +37,7 @@ The frozen local research package passed 156 tests. The public package contains 
 
 ## Data and ethics boundary
 
-The household records are synthetic and distribution-constrained. The 500-case blinded expert review supports expert face validity of the operational reference; it does not create observed household-choice labels. The longitudinal API records are replay-based rather than fully action-conditioned multi-world simulations.
+The household records are synthetic and distribution-constrained, and no observed household-choice labels are claimed. The longitudinal API records are replay-based rather than fully action-conditioned multi-world simulations.
 
 ## Credentials and provider data
 

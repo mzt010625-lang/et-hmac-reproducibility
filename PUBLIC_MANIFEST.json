@@ -1,6 +1,6 @@
 {
   "status": "PUBLIC_PACKAGE_READY",
-  "file_count": 213,
+  "file_count": 202,
   "files": [
     {
       "path": ".gitignore",
@@ -14,8 +14,8 @@
     },
     {
       "path": "README.md",
-      "sha256": "8184505542638e6778cbed2c20ef759d0a3257f566d3c8c78110da4bd6919f77",
-      "bytes": 3253
+      "sha256": "492e43239a3021121b6aba5d4ebcb1d07adb8950f674706b00a06f152adf1995",
+      "bytes": 3038
     },
     {
       "path": "configs/agent_parameters_v1.json",
@@ -153,99 +153,49 @@
       "bytes": 2704064
     },
     {
-      "path": "data/stage9f_expert_blind_pack_v1/STAGE9F_EXPERT_PROTOCOL.md",
-      "sha256": "61718a16ca87aa0345d8235db478b8fc22e255b231fd38c611e6e7db9481992b",
-      "bytes": 2104
-    },
-    {
-      "path": "data/stage9f_expert_blind_pack_v1/annotation_schema.json",
-      "sha256": "ae4ccdd65533baaa79615638cf4085a6c5be1f0bccc985533f942be091ba9d97",
-      "bytes": 402
-    },
-    {
-      "path": "data/stage9f_expert_blind_pack_v1/expert_blind_annotation_pack.jsonl",
-      "sha256": "4350cbb7710a6725ff61aacb51d0680f1c25afc1f89dcff3e52d5b7fc0875d9b",
-      "bytes": 2616780
-    },
-    {
-      "path": "data/stage9f_expert_blind_pack_v1/expert_review_completion_summary.json",
-      "sha256": "f133e54c69e93cb6fecb60fae046b2327634e8dfd4b5d01f723cbbc72cef0039",
-      "bytes": 830
-    },
-    {
-      "path": "data/stage9f_expert_blind_pack_v1/stage9f_manifest.json",
-      "sha256": "2de523dbf791b14bf06faa8dfa8922abec2f3e428193674b3686baeff72dac09",
-      "bytes": 591
-    },
-    {
       "path": "documentation/ET_HMAC_ESWA_manuscript.md",
-      "sha256": "2e89f4f1d6eeb01797bc4101183008704c707c66c1141f26de1cb2f922463332",
-      "bytes": 35173
+      "sha256": "3a6e33714c0156ae0a57dee61837973866d16d230089c7aa81ed750ae064519f",
+      "bytes": 45104
     },
     {
-      "path": "documentation/STAGE9_12_FINAL_STATUS.md",
-      "sha256": "d2d643d6e9388be3b0846ac26668f401639cfb4c40a8e994730975060da30d1e",
-      "bytes": 1511
+      "path": "figures/Figure_1_Architecture.pptx",
+      "sha256": "15afcf58d463e8ce1eb6a6f7e7e9ac17e18b71f263a157f8abe2acd0a7c87b3c",
+      "bytes": 22903
     },
     {
-      "path": "documentation/Stage11两轮模拟审稿_2026-10-09.md",
-      "sha256": "ae40cfe17cff415ade5676e177998470808d913222b11d83af1f7128ae7c86e7",
-      "bytes": 2960
-    },
-    {
-      "path": "documentation/Stage12选刊与投稿要求核验_2026-10-09.md",
-      "sha256": "f876f08ed7278a5bd566b921f2e984b6799a612cbf0fd84bac3925e679be8354",
-      "bytes": 2769
-    },
-    {
-      "path": "documentation/stage12_submission_manifest.json",
-      "sha256": "27c68ef42dd957129fcef2800dc0b46f3669bd629f59debdd963fbe8bbf42b9b",
-      "bytes": 3548
-    },
-    {
-      "path": "figures/ET_HMAC_Editable_Figures.pptx",
-      "sha256": "eaaf8876d6256a89db764e1e55715e39db15fca8b938b1dde01f3c4711a4c9f2",
-      "bytes": 34496
+      "path": "figures/Figures_2_3_Source_Data.xlsx",
+      "sha256": "998268a099fca2dd837c7fa34d39ccc9276831b8ea2f338c5405da0e5422feb6",
+      "bytes": 18975
     },
     {
       "path": "figures/fig01_et_hmac_architecture.pdf",
-      "sha256": "443e9a27ccda6d3bc7f0cff2255ab97d556d7f3ccd621d1f0a0f54eda190904e",
-      "bytes": 110175
+      "sha256": "443c8af499736d7357e9961741702e7eddfa361e4da3370b495db962f4f465df",
+      "bytes": 36594
     },
     {
       "path": "figures/fig01_et_hmac_architecture.png",
-      "sha256": "3224e4218c92a2673860274a23dabc0a194d29403cf5ebc4a2d6bba2fef5e147",
-      "bytes": 292285
+      "sha256": "920fd89ecc47fbb6a39245e9790523fd9c3436397cad8b0428be371159f92c21",
+      "bytes": 331826
     },
     {
       "path": "figures/fig02_quality_resource_tradeoff.pdf",
-      "sha256": "b93ab8fb5959209c7dd697b35e1c8b1113aa096f1aad990f868ee52882b40052",
-      "bytes": 104220
+      "sha256": "88a4b2968ff09f27b86204946ba61561a09913e554b8c102c24a8037a27a3701",
+      "bytes": 21846
     },
     {
       "path": "figures/fig02_quality_resource_tradeoff.png",
-      "sha256": "150f006977069a74f6b92e8edb47ae115f871619f64b99c704049ffee6c90272",
-      "bytes": 160137
+      "sha256": "40a6c8b92c29ddc8e48990ecbb0b4560471cbffcd47eecb9ff647aca4f8d3c87",
+      "bytes": 92577
     },
     {
       "path": "figures/fig03_cohort_quality_routing.pdf",
-      "sha256": "8badde48e00d6a818c7cc80e461ca2d6084d22d2f64d5ba55c556304cb597a08",
-      "bytes": 104358
+      "sha256": "d03fff234533a993c1183ee3f6013063870716cf8f6f86d64a849aaf6b8ab486",
+      "bytes": 21517
     },
     {
       "path": "figures/fig03_cohort_quality_routing.png",
-      "sha256": "c0d7a77a31298a565ea4f827e616088fa6d8e8019c149a24797f870ae2b0890b",
-      "bytes": 127778
-    },
-    {
-      "path": "main_stage11_integrity_audit.py",
-      "sha256": "8d610cdd586467ec248959609df60013dfc65fde54246c48cfd531ac7029e9a3",
-      "bytes": 7800
-    },
-    {
-      "path": "main_stage12_finalize.py",
-      "sha256": "25a4389ef349de7e3c620615450ddebd6931ec82f0e2c4259403c55acb951c37",
-      "bytes": 6994
+      "sha256": "7329677b77237a5209376dfe398deed419e65fbf2a452a64fcba4ce28f468a01",
+      "bytes": 79723
     },
     {
       "path": "main_stage9d.py",
@@ -261,11 +211,6 @@
       "path": "main_stage9e_trajectory_audit.py",
       "sha256": "e5f59290affac50175f053f835c814bb6dc11388303d3f80adb0c7a43d2e366e",
       "bytes": 13774
-    },
-    {
-      "path": "main_stage9f_external_validity_prepare.py",
-      "sha256": "d124bc839c1cca4a5f875f1c3140dda2db0e3cfd967971465f15ad8622302fff",
-      "bytes": 5546
     },
     {
       "path": "main_stage9g_deployment_benchmark.py",
