@@ -6,7 +6,7 @@ Repository: https://github.com/mzt010625-lang/et-hmac-reproducibility
 
 ## Primary frozen result
 
-On the independent 1,020-record Stage 9D holdout, the hybrid system reached 97.75% agreement with a separately executed full-L2 operational reference, 96.48% balanced agreement, and 96.70% macro-F1 while reducing tokens by 68.36% and invoking L2 for 24.80% of opportunities. These are model-reference metrics, not observed household-behaviour accuracy. All 23 mismatches occurred in the policy-OOD cohort; 21 reflected asymmetric evidence-reference validation and two reflected different valid L2 outputs.
+On the independent 1,020-record Stage 9D holdout, the hybrid system reached 97.75% agreement with a separately executed full-L2 operational reference, 96.48% balanced agreement, and 96.70% macro-F1 while reducing tokens by 68.36% and invoking L2 for 24.80% of opportunities. These are model-reference metrics, not observed household-behaviour accuracy. All 23 original hybrid mismatches occurred in the policy-OOD cohort; 21 reflected asymmetric evidence-reference validation and two reflected different valid L2 outputs. A paired guard-only replay matched the same 997 records while saving 73.82% of tokens. One separate same-payload guard-only robustness replicate made 252 new L2 calls and matched 1,008 records (98.82%) while saving 73.82%; it changed 21 actions relative to the replay. The fresh run does not replace the paired ablation or establish response stability.
 
 ## Architecture
 

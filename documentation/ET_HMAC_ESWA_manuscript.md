@@ -1,8 +1,8 @@
-# Executable Semantic Contracts for Selective LLM Invocation in Agent-Based Simulation
+# ET-HMAC: Hard-Guard-First Selective Deliberation for Contract-Constrained LLM Household Simulation
 
 ## Abstract
 
-Large-language-model-driven agent-based simulation can represent heterogeneous cognition, but unconditional semantic deliberation increases computational demand and response variability. We present an executable semantic-contract architecture, implemented as ET-HMAC, that allocates semantic computation across repeated household decisions. Persistent agents combine attributes, dynamic state, beliefs, goals, bounded memory, and visible network evidence. A deterministic table supplies a base action; an object–relation–event–evidence contract defines legal actions, temporal visibility, and five semantic exceptions. Hard-risk events enter full semantic deliberation (L2) directly, while a compact judgment/event verifier (JEV) screens the remaining ambiguity band. A valid selected L2 decision is final. Following development on 4,400 records, the frozen architecture was evaluated on an independent 1,020-record holdout containing natural snapshots, controlled stress cases, and synthetic policy out-of-distribution (OOD) cases. Agreement with separately executed full L2 was 97.75% (95% cluster-bootstrap interval: 96.83–98.67%), while token use decreased by 68.36% (63.19–73.61%) and L2 was invoked for 24.80% of opportunities. Natural and stress records achieved complete agreement. Policy-OOD records required universal L2 use, provided no token saving, and yielded 88.50% agreement between independent executions. Of the 23 OOD disagreements, 21 involved asymmetric evidence-reference validation and two involved different valid L2 actions. The results define a resource-saving regime under a shared finite-exception contract and expose its OOD boundary. They evaluate a decision layer for simulation, not prediction of observed household choices or equivalence of closed-loop market trajectories.
+Full semantic deliberation at every household decision is costly in large language model (LLM) agent-based simulation. We introduce event-triggered hybrid multi-agent computing (ET-HMAC), an architecture in which an executable object–relation–event–evidence contract defines legal actions, time-valid evidence and finite semantic exceptions. A deterministic prior supplies a base action; hard-guard exceptions invoke full LLM deliberation (L2) directly; a compact judgment/event verifier (JEV) screens other coarse candidates. Every valid selected L2 action is final. After development on 4,400 records, we froze the system and evaluated it on 1,020 independent synthetic household records spanning natural snapshots, controlled stress and policy out-of-distribution (OOD) cases. The hybrid matched a separately executed full-L2 reference on 997 records (97.75%; 95% household-cluster bootstrap interval 96.83–98.67%) while using 68.36% fewer service tokens. A paired offline rule-only ablation achieved 90.88% agreement. A hard-guard-only replay achieved the same 97.75% agreement as the hybrid while saving 73.82% of tokens, so this holdout does not establish an incremental JEV benefit. A new same-prompt guard-only run matched 98.82% while saving 73.82%, but differed from the replay on 21 actions. All policy-OOD records invoked L2 and yielded no token saving; 21 of 23 disagreements in the original hybrid comparison involved asymmetric evidence-reference validation. The evidence supports contract-governed selective deliberation while revealing reference variability and the conditions under which routing ceases to save resources.
 
 **Keywords:** large language model agent; agent-based modelling; ontology; selective deliberation; semantic routing; policy simulation
 
@@ -14,15 +14,15 @@ Replacing every LLM decision with a fixed rule is not a satisfactory solution. R
 
 The central question is therefore not simply whether an LLM can imitate a household decision. It is how to allocate semantic computation across repeated, stateful opportunities without destroying the behavioural contract of the simulation. Three requirements must be satisfied simultaneously. First, all paths must interpret household attributes, policy evidence, social relations, and event time consistently. Second, expensive deliberation must be concentrated on cases in which it is plausibly useful. Third, a routed L2 response must not be silently overwritten merely because it differs from the fast decision; otherwise the experiment does not measure the contribution of deeper deliberation.
 
-We address this problem through an executable semantic-contract architecture, implemented in the ET-HMAC system. The machine-readable contract defines objects, relations, evidence states, action legality, event predicates, and temporal boundaries. A deterministic decision table proposes a fast action. Hard-guard predicates identify zero matching-market inventory, a recent failed action, a compound evidence conflict, or a matching ambiguous policy relation. Such cases enter L2 directly. A compact judgment/event verifier (JEV) screens only the remaining coarse candidates. Both selective and full L2 use the same base action and finite semantic-exception contract; separate responses provide the operational comparison. If a selected L2 response satisfies that contract, its action is final. ET-HMAC is used as a system identifier rather than as a claim that these components constitute a new general-purpose routing algorithm.
+We address this problem through an executable semantic-contract architecture, implemented in the ET-HMAC system. The machine-readable contract defines objects, relations, evidence states, action legality, event predicates, and temporal boundaries. A deterministic decision table proposes a fast action. Hard-guard predicates identify zero matching-market inventory, a recent failed action, a compound evidence conflict, or a matching ambiguous policy relation. Such cases enter L2 directly. A compact judgment/event verifier (JEV) screens only the remaining coarse candidates. Both selective and full L2 use the same base action and finite semantic-exception contract; separate responses provide the operational comparison. If a selected L2 response satisfies that contract, its action is final. The contribution is a domain-specific execution contract and its measured decision boundary, rather than a new general-purpose query router.
 
 This study makes three contributions.
 
 1. It specifies an executable semantic contract for persistent household agents, combining stable attributes, dynamic state, beliefs, goals, bounded memory, network information, legal actions, evidence provenance, and transition responsibilities.
 2. It defines a contract-constrained, hard-guard-first execution policy with explicit decision authority and safety invariants: unavoidable exceptions bypass JEV, valid selected L2 outputs are authoritative, and invalid outputs cannot enter the simulation state.
-3. It evaluates agreement, risk coverage, token use, and latency jointly on a frozen holdout, and reports both the resource-saving regime and the policy-OOD failure boundary, including a record-level decomposition of all 23 disagreements.
+3. It evaluates agreement, risk coverage, token use, and latency on a frozen holdout; paired offline ablations isolate the fast prior and hard guard, while a record-level failure analysis locates the dominant policy-OOD disagreement at evidence-reference validation.
 
-The evaluation addresses three questions: whether guarded selective execution preserves the shared semantic contract, where routing saves resources, and which failure modes persist when every case already receives L2. Model-reference agreement is the relevant outcome because subsequent observed household choices are unavailable.
+The evaluation addresses three questions: whether guarded selective execution preserves the shared semantic contract, which component creates the resource saving, and which failure modes persist when every case already receives L2. For example, one natural-snapshot household's base action was `search_monthly_rent`; a matching market observation reported zero monthly-rental inventory, so the hard guard invoked L2 without JEV. L2 cited that observation, applied `MARKET_ZERO`, and committed `wait`. This is an audited instance from the holdout, not a hypothetical decision rule. Model-reference agreement is used because observed subsequent household choices are unavailable.
 
 [[FIGURE:fig01_et_hmac_architecture.png|Figure 1. Executable semantic-contract architecture. (a) Persistent household state and visible evidence share a typed contract. (b) The frozen execution sequence applies the fast prior, routes hard exceptions directly to L2, uses JEV only within the remaining ambiguity band, validates every output, and commits a valid selected L2 action as final before the environment updates state.]]
 
@@ -38,9 +38,20 @@ ABM verification and validation research has long distinguished implementation c
 
 FrugalGPT combines model cascades to reduce cost [5]. RouteLLM, RouterBench, Hybrid LLM, AutoMix, and MixLLM study learned, benchmarked, or dynamic quality–cost routing among language models [6–8,15,25]. Firewall Routing uses blocking to avoid unproductive escalation of difficult queries, while Select-then-Route introduces taxonomy-guided selection and routing [26,27]. SelectiveNet addresses prediction with a reject option [9]. These studies establish that expensive computation need not be universal. Our setting does not propose another general-purpose query router. It adds persistent agent state, policy validity, bounded memory, legal action constraints, executable ontology conflicts, and the requirement that valid deep decisions be authoritative across repeated simulation opportunities.
 
+**Table 1. Scope of representative cited systems and the present implementation.** Entries describe each work's central evaluated mechanism; an unreported feature is not asserted to be absent.
+
+| Work | Main decision unit | Reported computational focus | Contract or outcome focus |
+|---|---|---|---|
+| Generative Agents [1] | Persistent social agent | Memory, reflection and planning | Believable interactive behaviour |
+| Concordia [2] | Grounded generative agent | Configurable agent components | Social and physical grounding |
+| AgentSociety [4] | Large-scale social agent | Population-scale simulation | Social behaviour and outcomes |
+| FrugalGPT [5] | Independent query | Model cascade by cost and quality | Query answer quality |
+| RouteLLM [6] | Independent query | Learned model routing | Preference-based quality and cost |
+| ET-HMAC (this study) | Repeated household opportunity | Hard-guard-first selective L2 | Executable evidence/action contract and decision authority |
+
 ### 2.3 Event-triggered systems and executable semantics
 
-Event-triggered control executes communication or control only when a state-dependent condition is satisfied [16–18]. We use the event-triggered principle as a computational allocation mechanism rather than as a stability theorem: policy changes, evidence conflicts, legal-action changes, multistep dependencies, and OOD combinations trigger different computational paths.
+Event-triggered control executes communication or control only when a state-dependent condition is satisfied [16–18]. Its basic trigger has the form \(\mathbf 1[g(x_t)\geq 0]\); our hard guard is the corresponding Boolean event function \(H(x_{i,t})=\bigvee_k h_k(x_{i,t})\), where each \(h_k\) is a frozen, externally testable predicate. The analogy concerns conditional computation, not a stability theorem or an optimal event threshold. Policy applicability, evidence conflicts and matching-market availability determine the evaluated predicates.
 
 Ontologies provide explicit concepts, relations, and constraints [19–21]. In the proposed system, the ontology is implemented as a state and evidence contract with queryable event flags and legality checks. This is narrower than a complete OWL knowledge base but stronger than calling a JSON payload an ontology: the contract directly determines routing, validation, and permissible state transitions.
 
@@ -65,7 +76,7 @@ where \(q_i\) contains stable attributes, \(s_{i,t}\) dynamic state, \(b_{i,t}\)
 
 restricted to a household-specific feasible subset by tenure and objective constraints. Jeonse denotes the Korean deposit-based rental arrangement. The decision unit is always a household, including a household that supplies accommodation through a listing action.
 
-A fast policy returns \(a^f_{i,t}\). A deep policy returns \(a^d_{i,t}\) if invoked. Let \(H_{i,t}\) be a frozen hard-guard event, \(C_{i,t}\) a non-hard coarse candidate, and \(J_{i,t}\) the binary JEV decision. The deployed route is
+A fast policy returns \(a^f_{i,t}\). A deep policy returns \(a^d_{i,t}\) if invoked. Let \(H_{i,t}\) be the disjunction of the four frozen hard-guard predicates in Section 4.2. The coarse candidate is \(C_{i,t}=\mathbf 1[\Phi_C(x_{i,t})\neq\varnothing]\), where \(\Phi_C\) is the fixed set of near-zero matching inventory, zero inventory in another market, one conflict with multistep dependency, and near-matching ambiguous policy relation tests. For a called JEV, \(J_{i,t}=\mathbf 1[p_{i,t}^{J}\geq 0.5]\); its Boolean recommendation must agree with that threshold or parsing fails. The reported \(p_{i,t}^{J}\) is an uncalibrated model output. The deployed route is
 
 \[
 r_{i,t}=H_{i,t}\lor[(1-H_{i,t})C_{i,t}J_{i,t}].
@@ -93,9 +104,22 @@ Let \(q\) be the JEV invocation fraction, \(r\) the L2 fraction, \(\bar c_J\) th
 
 The equation shows why a low L2 rate alone is insufficient: frequent verifier calls can consume the avoided deliberation cost. It also predicts the policy-OOD boundary when \(r=1\), \(q=0\), and selected and reference L2 costs are similar.
 
+For cohort \(k\in\{\mathrm{natural},\mathrm{stress},\mathrm{OOD}\}\), the auditable quantity is \(\rho_{T,k}=(T_{J,k}+T_{D,k})/T_{F,k}\), with paid retries included in each component. The pooled ratio is \(\rho_T=\sum_k T_{F,k}\rho_{T,k}/\sum_k T_{F,k}\). This weighted identity, rather than an unweighted average of cohort percentages, accounts for the overall saving reported below.
+
 The implementation follows a fixed seven-step algorithm. First, assemble the time-valid state package and legal-action mask. Second, compute the deterministic base action. Third, evaluate the hard-guard predicates. Fourth, send hard-guard cases directly to L2. Fifth, for a non-hard coarse candidate only, invoke JEV and enter L2 when it recommends escalation; otherwise retain the base action. Sixth, validate the selected action against schema, legality, evidence provenance, policy applicability, and the temporal cutoff. Seventh, commit the valid action and let the environment produce outcomes and the next state. This sequence is deterministic except for JEV and L2 service responses.
 
-Three invariants delimit the guarantee. The legality invariant prevents an action outside the household-specific feasible set from being committed. The temporal invariant prevents evidence that becomes visible after round \(t\) from affecting \(a_{i,t}\). The authority invariant ensures that a valid selected L2 action is not rejected merely because it differs from the base action. Zero false negatives are claimed only for the enumerated hard-exception set under a complete and correct contract. Missing, incorrectly typed, or previously unseen relations fall outside that closed-world guarantee and must be handled as OOD, validation failure, or an explicit schema migration.
+Three invariants delimit the guarantee. Writing \(E^{in}_{i,t}\) for the evidence assembled into the current request, they are
+
+\[
+\begin{aligned}
+&a^{final}_{i,t}\in\mathcal A_{feasible}(x_{i,t}),\\
+&\forall e\in E^{in}_{i,t}:\ visible\_from(e)\leq t\land
+  (expiry(e)=\varnothing\lor t\leq expiry(e)),\\
+&r_{i,t}=1\land V(a^d_{i,t})=1\ \Longrightarrow\ a^{final}_{i,t}=a^d_{i,t}.
+\end{aligned}
+\]
+
+The second statement is an input-assembly property, not proof that the LLM internally ignored unseen information. The authority statement applies only to accepted L2 outputs; contract-invalid outputs follow the declared fail-safe. Section 6 audits all three properties on the frozen holdout. Zero false negatives are claimed only for the enumerated hard-exception set under a complete and correct contract. Missing, incorrectly typed, or previously unseen relations fall outside that closed-world guarantee and require OOD handling, validation failure, or schema migration.
 
 ## 4. Method
 
@@ -129,11 +153,11 @@ Rules query these fields and generate auditable reason codes. The hard guard is 
 
 The evaluated fast policy is an ordered, deterministic decision table. It selects the first feasible action whose condition holds. A sale listing has priority when liquidity pressure is at least 0.68, or when expected price growth is at most −0.04 and the improvement goal is at least 0.35. A rental listing follows when residential attachment is at least 0.45 or the financial-security goal is at least 0.28. A purchase search requires affordability belief of at least 0.72, liquidity pressure of at most 0.45, and risk perception of at most 0.65. Jeonse search requires affordability belief of at least 0.50 and non-negative financial-security plus family-stability goals minus mobility and policy-opportunity goals. Monthly-rental search follows when liquidity pressure is at least 0.55, affordability belief is at most 0.40, or the mobility goal is at least 0.23. If none applies, multistep dependency with a positive conflict count selects waiting when legal; otherwise the policy retains residence when legal and waits as the final feasible alternative.
 
-These thresholds are modelling assumptions frozen before holdout execution. They define the common prior used by both experimental paths. The reported experiment does not fit a utility model or establish that these thresholds describe empirically optimal household behaviour.
+These thresholds are author-specified modelling assumptions fixed during development and frozen before holdout execution; they were not fitted or adjusted using holdout responses. They define the common prior used by both experimental paths. The experiment does not establish empirically optimal household behaviour thresholds.
 
 ### 4.4 JEV for non-hard ambiguity
 
-The coarse screen admits near-zero matching-market inventory, zero inventory in a different market, a single conflict combined with multistep dependency, and near-matching ambiguous policy applicability. JEV receives compact household, state, belief and goal fields, the verified base action, legal actions, the last three relevant memory items, policy applicability relations, ontology counts, and matching visible evidence. It returns an escalation probability, a binary recommendation, confidence, at most three evidence identifiers, and one reason code. The binary recommendation must equal whether the reported probability is at least 0.5. These self-reported probabilities are not treated as calibrated error probabilities.
+The coarse screen admits near-zero matching-market inventory, zero inventory in a different market, a single conflict combined with multistep dependency, and near-matching ambiguous policy applicability. JEV receives compact household, state, belief and goal fields, the verified base action, legal actions, the last three relevant memory items, policy applicability relations, ontology counts, and matching visible evidence. Its frozen system and user prompts are `prompts/jev_compact_event_router_system_v2.md` and `prompts/jev_compact_event_router_user_v2.md`; its output contract is `schemas/jev_compact_event_router_v2.schema.json`. The returned fields are `should_escalate`, `need_l2_probability`, `reason_code`, `confidence`, and `evidence`, together with version and record identifiers. The binary recommendation must equal whether the probability is at least 0.5; the probability is not calibrated as an empirical error risk.
 
 JEV cannot change the household action. Its output determines only whether a remaining candidate receives L2. Hard-guard cases bypass it, and records outside the coarse candidate set retain the base action. This ordering confines semantic verification cost to an explicit ambiguity band.
 
@@ -141,7 +165,7 @@ JEV cannot change the household action. Its output determines only whether a rem
 
 L2 is a semantic exception reviewer operating on the verified base action and a richer representation of visible evidence. Its system prompt specifies role, information boundary, household cognition, identity/context and rule/semantic checks, decision order, overriding conditions, update responsibilities, and a strict JSON schema. Its user prompt contains three blocks: verified base action, agent state, and event context. The full-reference call uses exactly this contract on every record.
 
-Five exception types can override the prior in a prescribed order: zero inventory in the market corresponding to the selected demand-side search; a recent failed execution of that same action; an evidenced policy block; an evidenced policy enablement; and multistep dependency with at least two missing-evidence, evidence-conflict or rule-conflict flags in total. The first, second and fifth exceptions select waiting when legal. Policy exceptions must cite an operational official source and a matching machine-readable relation specifying the permitted candidate action. A supply-side listing is not blocked merely because demand-side inventory is zero. When no exception holds, L2 must retain the base action.
+Five exception types can override the prior in a fixed order: zero inventory in the market corresponding to the selected demand-side search; a recent failed execution of that same action; an evidenced policy block; an evidenced policy enablement; and multistep dependency with at least two missing-evidence, evidence-conflict or rule-conflict flags in total. Their triggering conditions can overlap; the prompt selects the first applicable override code in this order. The first, second and fifth exceptions select waiting when legal. Policy exceptions must cite an operational official source and a matching machine-readable relation specifying the permitted candidate action. A supply-side listing is not blocked merely because demand-side inventory is zero. When no exception holds, L2 must retain the base action. The frozen L2 prompt and output schema are `prompts/l2_semantic_exception_system_v9.md`, `prompts/l2_semantic_exception_user_v9.md`, and `schemas/l2_semantic_exception_v9.schema.json`.
 
 L2 is permitted to retain or override the fast action. Its response is rejected only for schema failure, an illegal action, temporal leakage, or another frozen execution violation. Semantic disagreement never causes fallback to the fast path.
 
@@ -161,7 +185,7 @@ The development experiment contained 4,400 records: 2,000 four-round natural sna
 
 The principal operational reference is a fresh full-L2 call for every record. Hybrid-L2 responses were executed separately and were not reused as reference outputs. Both receive the same CPU-verified base action and finite-exception contract; response isolation does not imply independent decision rules. This comparison measures preservation of unconditional contract-constrained semantic review. It does not compare against an unconstrained LLM household model or provide labels for observed behaviour.
 
-The analysis separates the transparent prior, hard-guard selection, incremental JEV selection, hybrid final decision, and full-L2 reference. Fixed and counterfactual routes over frozen responses are exploratory because their outcomes were already visible when the route-order comparison was constructed.
+Two further comparisons use frozen per-record receipts without a new model call. Rule-only commits the verified fast prior on every record. Hard-guard-only invokes L2 only where the same hard predicate fired, reusing the observed hybrid L2 response on those records and paying no JEV tokens. This is a paired, post-hoc replay rather than an independently executed API arm; it isolates the realised marginal JEV contribution but cannot estimate fresh-call variance. We therefore also executed one separate guard-only robustness replicate: each of the 252 hard-guard records was sent anew with the byte-equivalent frozen L2 request, while the other records retained their fast action. The independent full-L2 reference was held fixed. We omit random routing because L2 outputs are unavailable for records the hybrid did not select. Substituting full-reference answers there would leak the evaluation target and make the comparison optimistic.
 
 All holdout semantic requests used the DeepSeek official API model identifier `deepseek-flash`, temperature 0, and disabled thinking mode. Output ceilings were 4,096 tokens for JEV and 16,384 for L2; actual provider-reported usage determines cost. Requests used JSON-object output, a 300-second timeout and at most three configured transport attempts. The provider does not supply a separately frozen model-weight artifact, so the request identifier, configuration and receipts define the reproducible service specification. Temperature 0 does not guarantee identical responses.
 
@@ -183,7 +207,7 @@ The token ledger counts input and output tokens for all paid attempts without do
 
 ### 5.4 Reproducibility controls
 
-Inputs, prompts, schemas, route equations, thresholds, seeds, manifests, request/response receipts, parsers, and metrics are frozen with SHA-256 hashes. Every semantic call records its provider response, token usage, elapsed time, retry state, and parsed result. API keys are excluded from experimental artifacts. Target-action keys and future evidence are audited before calls.
+Inputs, prompts, schemas, route equations, thresholds, seeds, manifests, request/response receipts, parsers, and metrics are frozen with SHA-256 hashes. Every semantic call records its provider response, token usage, elapsed time, retry state, and parsed result. API keys are excluded from experimental artifacts. Target-action keys and future evidence are audited before calls. The English supplementary audit identifies the exact executed prompt files and hashes; the prompts themselves were executed in Chinese, and an English translation is not substituted for them.
 
 ## 6. Results
 
@@ -195,11 +219,9 @@ A frozen-response counterfactual preserved every selected route and downstream a
 
 ### 6.2 Independent holdout
 
-Table 1 reports the independent holdout results. The hybrid architecture matched the separately executed full-L2 reference on 997 of 1,020 records (97.75%). Household-cluster bootstrap intervals were 96.83–98.67% for agreement, 93.49–98.24% for balanced agreement, and 93.90–98.28% for macro-F1. Total token use fell from 2,750,418 to 870,253, a saving of 68.36% (cluster-bootstrap interval 63.19–73.61%). Of the hybrid tokens, 147,061 were consumed by JEV and 723,192 by selected L2. Figure 2 separates this request-cost ledger from the three agreement metrics.
+Table 2 reports the independent holdout results. The hybrid architecture matched the separately executed full-L2 reference on 997 of 1,020 records (97.75%). Household-cluster bootstrap intervals were 96.83–98.67% for agreement, 93.49–98.24% for balanced agreement, and 93.90–98.28% for macro-F1. Total token use fell from 2,750,418 to 870,253, a saving of 68.36% (cluster-bootstrap interval 63.19–73.61%). Of the hybrid tokens, 147,061 were consumed by JEV and 723,192 by selected L2. Figure 2 summarizes the quality estimates, token ledger, cohort-specific routing rates, and resulting operating regimes.
 
-[[FIGURE:fig02_quality_resource_tradeoff.png|Figure 2. Independent holdout resource–quality result. (a) Full-L2 tokens compared with the hybrid token ledger, separated into JEV and selected-L2 components. (b) Agreement, balanced agreement, and macro-F1 against separately executed full L2; error bars show 95% household-cluster bootstrap intervals. These are model-reference metrics, not observed-choice accuracy.]]
-
-**Table 1. Independent holdout model-reference agreement and resource use.**
+**Table 2. Independent holdout model-reference agreement and resource use.**
 
 | Cohort | N | Agreement | Balanced agreement | Macro-F1 | L2 rate | Token saving | Hybrid/full P95 (s) |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -208,17 +230,50 @@ Table 1 reports the independent holdout results. The hybrid architecture matched
 | Synthetic policy OOD | 200 | 88.50% | 87.17% | 85.47% | 100.00% | −0.02% | 2.28 / 2.35 |
 | Overall | 1,020 | 97.75% | 96.48% | 96.70% | 24.80% | 68.36% | 2.16 / 2.20 |
 
-[[FIGURE:fig03_cohort_quality_routing.png|Figure 3. Cohort-level operating regimes. Aligned panels report (a) agreement with the separately executed full-L2 reference, (b) token saving with a visible zero line, and (c) L2 invocation rate. Natural and stress records preserve the reference with large savings, whereas policy-OOD cases route universally to L2 and provide no token benefit.]]
+[[FIGURE:fig02_performance_resource_summary.png|Figure 2. Independent holdout quality, resource use, and routing regimes. (a) Point estimates and two-sided 95% household-cluster bootstrap confidence intervals for agreement, balanced agreement, and macro-F1 against separately executed full L2. (b) Full-L2 service tokens and the hybrid ledger separated into JEV and selected-L2 components. (c) Cohort-specific JEV and L2 invocation rates. (d) Hybrid-to-full-L2 token use plotted against agreement with the independently executed full-L2 reference. These are model-reference fidelity metrics, not observed-choice accuracy.]]
 
-There were 252 hard-guard records, 160 JEV calls, and 253 L2 calls. JEV rejected escalation on 159 of its 160 candidates and added one L2 call beyond the hard-guard set. Route recall for the 93 fast/full disagreements was 100%, while route precision was 36.76%. Thus 160 of the 253 selected cases retained the reference base action. This conservative allocation protects recall but limits claims about the verifier's incremental benefit. No valid selected L2 output was overwritten by the fast path. Figure 3 shows that these aggregate results combine sharply different cohort regimes.
+There were 252 hard-guard records, 160 JEV calls, and 253 L2 calls. JEV rejected escalation on 159 of its 160 candidates and added one L2 call beyond the hard-guard set. Route recall for the 93 fast/full disagreements was 100%, while route precision was 36.76%. Thus 160 of the 253 selected cases retained the reference base action. This conservative allocation protects recall but limits claims about the verifier's incremental benefit. No valid selected L2 output was overwritten by the fast path. Figure 2 shows that these aggregate results combine sharply different cohort regimes.
+
+Table 3 separates the observed contribution of the fast prior, hard guard and optional JEV. Rule-only matched 927 records (90.88%). The paired hard-guard-only replay matched 997 (97.75%) using 720,151 service tokens, compared with the hybrid's same 997 matches and 870,253 tokens. Thus JEV added 150,102 tokens and one L2 call without changing final agreement in this paired replay. The replay uses frozen hybrid L2 receipts and is exact for those realised outputs, but does not estimate fresh-call variability. On natural and stress records, hard-guard-only matched all 820 reference actions. The remaining 23 replay disagreements occurred in policy OOD, where both routes invoked L2 for every record.
+
+We therefore made one independently executed, same-payload L2 call for each of the 252 frozen hard-guard records. The new guard-only run matched the fixed full-L2 reference on 1,008 of 1,020 decisions (98.82%; 95% household-cluster bootstrap interval 98.16–99.42%) and used 720,086 service tokens (73.82% saving; interval 68.99–78.96%). Its actions differed from the paired replay on 21 records, yielding a net 11 additional reference matches. Natural and stress agreement remained 100%; policy-OOD agreement changed from 88.50% in the replay to 94.00% in this fresh run. This is a single robustness replicate, not an estimate of the distribution of repeated L2 outputs. It is reported alongside, not in place of, the paired ablation; the fixed full-L2 execution remains an operational reference rather than a behavioural ground truth.
+
+**Table 3. Paired offline ablations and one independent guard-only robustness replicate against the fixed full-L2 reference.**
+
+| Method | Agreement | Balanced agr. | Macro-F1 | L2 calls | Service tokens | Token saving |
+|---|---:|---:|---:|---:|---:|---:|
+| Rule only | 90.88% | 89.16% | 88.32% | 0 | 0 | 100.00% |
+| Guard only (replay) | 97.75% | 96.48% | 96.70% | 252 | 720,151 | 73.82% |
+| Guard only (fresh run) | 98.82% | 98.89% | 98.87% | 252 | 720,086 | 73.82% |
+| Hybrid + JEV | 97.75% | 96.48% | 96.70% | 253 | 870,253 | 68.36% |
+| Full L2 | 100.00% | 100.00% | 100.00% | 1,020 | 2,750,418 | 0.00% |
+
+The full-L2 row equals 100% by definition of the operational reference. Rule-only has no model-service tokens; CPU cost is outside this ledger. The replay reuses hybrid L2 receipts; the fresh guard-only row makes 252 new calls on the same frozen records. Neither comparison is observed-choice accuracy.
+
+The hard guard fired on 42 matching-market-zero cases, 15 compound-conflict cases and 200 matching ambiguous-policy cases; five records carried more than one reason. No recent-failure reason fired. Of the 253 selected L2 responses, 120 passed the contract and 133 used the documented base-action fail-safe after validation failure (126 invalid evidence identifiers and seven override/action inconsistencies, all within policy OOD). Table 4 counts accepted L2 outputs by exclusive override code. Trigger reasons above are multi-label and have a different denominator.
+
+**Table 4. Accepted selected-L2 decisions by frozen exception code.**
+
+| Override code | Accepted count | Contract action |
+|---|---:|---|
+| MARKET_ZERO | 39 | Wait after matching-market inventory is zero |
+| RECENT_FAILURE | 0 | Wait after same-action failure |
+| POLICY_BLOCK | 36 | Matched policy blocks base action |
+| POLICY_ENABLE | 11 | Matched policy enables candidate action |
+| CONFLICT_WAIT | 0 | Wait after compound multistep conflict |
+| NONE | 34 | Retain base action |
+
+The legality and input-time audits passed on all 1,020 records. All 120 accepted selected-L2 outputs were committed as final actions; the 133 rejected outputs used the declared fail-safe. These are implementation-invariant checks, not validation against observed household choices.
 
 ### 6.3 OOD failure boundary
 
-All policy-OOD records required L2 under the frozen semantic contract. Because JEV was bypassed, the hybrid and full paths had nearly identical token demand. Their independently executed paths disagreed on 23 of 200 OOD records (11.50%). Record-level inspection showed that 21 disagreements arose when one L2 response passed evidence-reference validation while the other cited identifiers outside the frozen whitelist and therefore fell back to the deterministic base action. The remaining two disagreements occurred between two valid L2 outputs. The most frequent action transitions were wait versus list-for-rent (four records), search-buy versus wait (two), search-monthly-rent versus stay (two), list-for-rent versus search-monthly-rent (two), search-jeonse versus search-buy (two), and wait versus stay (two); the other nine transition pairs occurred once each.
+All policy-OOD records required L2 under the frozen semantic contract. Because JEV was bypassed, the original hybrid and full paths had nearly identical token demand. Their independently executed paths disagreed on 23 of 200 OOD records (11.50%); the subsequent fresh guard-only run disagreed with the same full reference on 12 (6.00%). The following decomposition and Figure 3 refer to the original hybrid comparison, not the fresh run. Record-level inspection showed that 21 of its 23 disagreements arose when one L2 response passed evidence-reference validation while the other cited identifiers outside the frozen whitelist and therefore fell back to the deterministic base action. The remaining two disagreements occurred between two valid L2 outputs. Counting ordered transitions from hybrid to full L2, the most frequent were list-for-rent to wait (four records); wait to search-buy, stay to search-monthly-rent, search-monthly-rent to list-for-rent, search-buy to search-jeonse, and stay to wait (two each). The other nine ordered transitions occurred once each. Figure 3 displays all 15 directional transition types without omitting single-record flows.
 
-This decomposition localises the dominant OOD failure to evidence-grounding stability at the contract boundary rather than to routing: every affected record had already reached L2. Changing the allocation decision cannot resolve it. A single execution therefore supplies an operational reference rather than an error-free behavioural label.
+The supplementary audit lists all 23 synthetic policy-OOD disagreements with directional actions and validation outcomes. This decomposition localises the dominant OOD failure to evidence-grounding stability at the contract boundary rather than to routing: every affected record had already reached L2. Changing the allocation decision cannot resolve it. A single execution therefore supplies an operational reference rather than an error-free behavioural label.
 
-The OOD result has two implications. First, the architecture should strengthen identifier canonicalisation and report a set-valued or distributional decision for genuinely underdetermined policy combinations. Second, reference self-consistency and external behavioural validity must be evaluated separately from token reduction.
+The OOD result calls for stronger identifier canonicalisation and, for underdetermined policy combinations, set-valued or distributional outputs. Reference self-consistency and external behavioural validity remain separate from token reduction.
+
+[[FIGURE:fig03_ood_disagreement_sankey.png|Figure 3. Policy-OOD action disagreements (n = 23): hybrid final action (left) to independently executed full-L2 action (right). Nodes and ribbon widths count records; all 15 directional transitions appear. Grey denotes asymmetric evidence/output validation (21); black denotes two valid but different L2 actions. These are model-reference disagreements, not observed-choice errors.]]
 
 ### 6.4 Longitudinal replay and transition audit
 
@@ -230,7 +285,7 @@ Later holdout snapshots were fixed independently of each method's preceding acti
 
 On the local test machine, the CPU path comprising the transparent prior, hard guard, and coarse event filter processed approximately 140,974 opportunities per second, with a P95 of a few microseconds per opportunity. A deterministic repeated-replay cache reached 95% hits after its first pass; this is a controlled cache benchmark rather than a production hit rate.
 
-Observed remote receipt latency changed much less than token use. Hybrid P95 was 2.16 s versus 2.20 s for full L2, an improvement of about 2.0%. Network and service variance dominate these single-request measurements. No server-side GPU memory, utilisation, batch queue, or energy data were available.
+Observed remote receipt latency changed much less than token use. Hybrid P95 was 2.16 s versus 2.20 s for full L2, an improvement of about 2.0%. The measured benefit is fewer charged service tokens and fewer L2 requests, not a demonstrated increase in served requests per second. Network and service variance dominate these single-request measurements. No server-side GPU memory, utilisation, batch queue, or energy data were available.
 
 ## 7. Discussion
 
@@ -238,7 +293,7 @@ Observed remote receipt latency changed much less than token use. Hybrid P95 was
 
 The dominant saving comes from resolving routine opportunities through the deterministic prior and admitting only evidence-linked exceptions to semantic processing. Hard events enter L2 directly, and JEV is restricted to an ambiguity band. On the holdout, 75.20% of opportunities avoided L2 and 84.31% avoided JEV. The resource ratio in Section 3 makes the residual verifier overhead explicit.
 
-This experiment offers limited evidence that JEV itself is necessary. Its conditions overlap substantially with the executable hard guard, and only one additional record reached L2 through JEV. The measured advantage therefore belongs to the complete selective architecture under the finite-exception contract. Establishing a distinct JEV benefit would require a held-out set of ambiguities not already decidable from hard predicates, paired with a guard-only comparison at equal resource cost. The present results do not establish that marginal advantage.
+The ablation does not support JEV as a necessary component in the frozen test distribution. The hard guard captured every fast/full-reference action disagreement, and JEV's sole additional L2 call left agreement unchanged while consuming 150,102 more tokens in total. Hard-guard-only is the more efficient observed configuration for this cohort. JEV remains a configurable screen for non-hard ambiguity, but its future robustness or anomaly-detection value is a hypothesis. It requires an untouched ambiguity set and a new paired equal-budget comparison before becoming an empirical contribution claim.
 
 ### 7.2 Role of the ontology
 
@@ -248,17 +303,25 @@ The ontology contract creates three operational benefits. It makes legal actions
 
 Semantic escalation is useful only if a supported exception can alter the proposed action. ET-HMAC separates validity from agreement: an L2 action is accepted when it meets the frozen action, evidence and policy-applicability constraints, even when it differs from the prior. The holdout recorded zero valid-L2 overwrites. This invariant establishes decision authority within the shared contract, while the contract itself restricts the range of behaviours available to both reference and hybrid systems. High agreement under that shared structure should not be extrapolated to unrestricted generative agents.
 
-### 7.4 Evidence limitations
+### 7.4 Threats to validity
 
-The strongest current evidence concerns preservation of a full-L2 operational reference, complete recall of fast/full disagreements by the selected L2 set, and service-token reduction. It does not establish that either method predicts real households. The household population is synthetic and distribution-constrained; latent traits and some cognition parameters are assumptions. No observed household-choice labels are available. The available four-round replay is not a fully action-conditioned market experiment. Finally, the same model family supplies hybrid L2 and reference L2, so their agreement is not cross-model independence.
+**Internal validity.** Rule-only and the paired hard-guard-only ablation are deterministic replays over a previously observed holdout. A separate same-payload guard-only run supplies one fresh-call robustness check, but 21 changed actions show that it cannot establish response stability or a variance estimate. A single provider, prompt contract and fixed decoding setting define the model service. Its OOD responses still vary under the same configured settings, and 133 of 253 selected hybrid L2 outputs failed contract validation. Agreement therefore measures the implemented system, including its fail-safe.
 
-The scope of transfer is consequently limited. Distribution shifts in household traits, different policy ontologies, alternative providers, and open-ended actions may alter both coverage and cost. The controlled stress conditions test specified predicates rather than the complete range of social complexity. Fully action-conditioned multi-world experiments and calibration against observed aggregate housing outcomes are needed to assess how local decision differences propagate through a market.
+**Construct validity.** Agreement with full L2 is an operational fidelity measure under a shared finite-exception contract. It is not accuracy against observed household decisions. The four-round records have frozen subsequent snapshots, so replay agreement does not demonstrate action-conditioned market-feedback equivalence.
+
+**External validity.** Household profiles are synthetic and constrained by selected population marginals; cognitive traits are assumptions. The 100-household, four-round horizon and Korean housing-policy setting do not cover other populations, longer histories, open action spaces or different policy ontologies. The present evaluation makes no claim about transfer across model providers.
+
+**Conclusion validity.** Household-cluster bootstrap intervals account for within-household dependence in the observed 100 clusters, but neither the intervals nor the 1,020-record count establish representative population coverage. The post-hoc ablation and OOD failure categories are descriptive rather than independent confirmatory tests of JEV or external behavioural validity.
+
+### 7.5 Responsible use
+
+Synthetic household decisions can help inspect simulation mechanisms and resource allocation, but they should not guide decisions about identifiable people or be treated as observed policy effects. Fewer service tokens may reduce compute demand in a specific deployment, while energy or carbon effects require direct infrastructure measurements unavailable here.
 
 ## 8. Conclusion
 
-ET-HMAC combines persistent household agents, an executable semantic contract, transparent fast decisions, selective JEV escalation, authoritative L2 deliberation, and auditable state transitions. The hard-guard-first execution order avoids paying JEV cost when contract events already require L2. On an independent 1,020-record holdout, the architecture retained 97.75% agreement with separate full-L2 execution while saving 68.36% of tokens and invoking L2 on 24.80% of opportunities. Natural and stress records achieved complete agreement with large savings. Policy-OOD records exposed a qualitatively different regime in which L2 is unavoidable, evidence-reference validation is the dominant disagreement source, and no token saving is available.
+ET-HMAC combines persistent household agents, an executable semantic contract, transparent fast decisions, hard-guard-first selective L2 deliberation, an optional JEV screen, and auditable state transitions. On an independent 1,020-record holdout, the evaluated hybrid retained 97.75% agreement with separate full-L2 execution while saving 68.36% of service tokens and invoking L2 on 24.80% of opportunities. A paired offline ablation located the realised resource saving in the contract-governed hard guard. Policy-OOD records required universal L2 use, exposed evidence-reference validation as the dominant disagreement source, and provided no token saving.
 
-The findings support selective deliberation as a resource-control layer for contract-constrained LLM-driven ABM. The main contribution is an auditable allocation of rule execution, event verification and semantic exception handling, together with an explicit account of the conditions under which savings disappear. External behavioural validation, action-conditioned trajectory experiments and equal-cost verifier ablations remain necessary for broader claims.
+The findings support event-triggered semantic review as a resource-control layer for contract-constrained LLM-driven ABM. The main contribution is an auditable allocation of rule execution and semantic exception handling, together with an explicit account of the conditions under which savings disappear. External behavioural validation, action-conditioned trajectory experiments and an untouched ambiguity-focused JEV test are needed for broader claims.
 
 ## Data and code availability
 

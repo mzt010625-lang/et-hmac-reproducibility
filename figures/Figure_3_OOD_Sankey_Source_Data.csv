@@ -1,0 +1,16 @@
+hybrid_final_action,full_l2_final_action,validation_pattern,records
+list_for_rent,search_monthly_rent,Asymmetric validation,1
+list_for_rent,wait,Asymmetric validation,4
+list_for_sale,wait,Asymmetric validation,1
+search_buy,search_jeonse,Asymmetric validation,2
+search_buy,wait,Asymmetric validation,1
+search_jeonse,search_buy,Asymmetric validation,1
+search_monthly_rent,list_for_rent,Asymmetric validation,2
+search_monthly_rent,search_jeonse,Asymmetric validation,1
+search_monthly_rent,stay,Asymmetric validation,1
+search_monthly_rent,wait,Both valid,1
+stay,search_monthly_rent,Asymmetric validation,2
+stay,wait,Asymmetric validation,2
+wait,list_for_rent,Asymmetric validation,1
+wait,search_buy,Asymmetric validation,2
+wait,search_monthly_rent,Both valid,1
